@@ -32,10 +32,6 @@ jobs:
         uses: actions/checkout@v3
       - name: Doxygen Action
         uses: mattnotmitt/doxygen-action@1.9.5
-        with:
-          working-directory: .
-          doxyfile-path: Doxyfile
-          enable-latex: true
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
