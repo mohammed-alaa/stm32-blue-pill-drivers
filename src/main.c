@@ -1,7 +1,10 @@
+#include "APPS/APPS_main.h"
 
 int main(void)
 {
-	while (1)
+	vAPPS_main();
+
+	for (;;)
 	{
 	}
 }
