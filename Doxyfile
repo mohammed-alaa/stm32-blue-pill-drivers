@@ -918,6 +918,7 @@ WARN_LOGFILE           =
 INPUT                  = "src/COTS" \
                          "src/APPS" \
                          "src/APPS/README.md" \
+						 "README.md" \
                          "src/main.c"
 
 # This tag can be used to specify the character encoding of the source files
