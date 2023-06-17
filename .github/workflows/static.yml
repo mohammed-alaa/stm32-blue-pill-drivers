@@ -37,13 +37,15 @@ jobs:
       - name: Move PDF to documentation folder
         run: |
           sudo mkdir ./docs/pdf
-          sudo mv ./docs/latex/refman.pdf ./docs/pdf/documentation.pdf
+          sudo cp ./docs/latex/refman.pdf ./docs/pdf/documentation.pdf
+          sudo mkdir ./docs/html/docs/pdf
+          sudo cp ./docs/latex/refman.pdf ./docs/html/docs/pdf/documentation.pdf
       - name: Commit and Push PDF documentation to repository
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add ./docs/pdf/documentation.pdf
-          git commit -m "Updated documentation.pdf"
+          git commit -m "Updated `documentation.pdf`"
           git push
       - name: Setup Pages
         uses: actions/configure-pages@v2
