@@ -35,7 +35,7 @@ jobs:
         with:
           enable-latex: true
       - name: Move PDF to documentation folder
-        run: sudo mv ./docs/latex/refman.pdf ./docs/docs.pdf
+        run: sudo mv ./docs/latex/refman.pdf ./docs/html/docs.pdf
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
