@@ -31,8 +31,10 @@ jobs:
       - name: Doxygen Action
         uses: mattnotmitt/doxygen-action@1.9.5
         with:
-          additional-packages: font-fira-code
+          working-directory: .
+          doxyfile-path: Doxyfile
           enable-latex: true
+          additional-packages: font-fira-code
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup Pages
