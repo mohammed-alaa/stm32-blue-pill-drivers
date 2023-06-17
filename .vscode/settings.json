@@ -1,0 +1,6 @@
+{
+	"files.associations": {
+		"*.embeddedhtml": "html",
+		"apps_main.h": "c",
+	}
+}
