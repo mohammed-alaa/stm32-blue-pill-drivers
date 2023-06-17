@@ -10,3 +10,4 @@ ENDLOCAL
 MKDIR ".\docs\html\docs\pdf"
 COPY /Y ".\docs\latex\refman.pdf" ".\docs\html\docs\pdf\documentation.pdf"
 @RD /S /Q ".\docs\latex"
+ECHO "%CD%\docs\html\index.html generated."
