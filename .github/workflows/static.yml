@@ -38,7 +38,7 @@ jobs:
         run: |
           sudo mkdir -p ./docs/pdf
           sudo cp ./docs/latex/refman.pdf ./docs/pdf/documentation.pdf
-          sudo mkdir ./docs/html/docs/pdf
+          sudo mkdir -p ./docs/html/docs/pdf
           sudo cp ./docs/latex/refman.pdf ./docs/html/docs/pdf/documentation.pdf
       - name: Commit and Push PDF documentation to repository
         run: |
