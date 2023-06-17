@@ -35,7 +35,9 @@ jobs:
         with:
           enable-latex: true
       - name: Move PDF to documentation folder
-        run: sudo mv ./docs/latex/refman.pdf ./docs/pdf/documentation.pdf
+        run: |
+          sudo mkdir ./docs/pdf
+          sudo mv ./docs/latex/refman.pdf ./docs/pdf/documentation.pdf
       - name: Commit and Push PDF documentation to repository
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
