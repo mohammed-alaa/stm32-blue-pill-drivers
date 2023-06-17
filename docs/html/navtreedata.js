@@ -24,12 +24,23 @@
 */
 var NAVTREE =
 [
-  [ "STM32 Blue Pill Drivers", "index.html", ]
+  [ "STM32 Blue Pill Drivers", "index.html", [
+    [ "Testing applications", "a00014.html", [
+      [ "## Applications list", "a00014.html#autotoc_md1", null ]
+    ] ],
+    [ "Files", "files.html", [
+      [ "File List", "files.html", "files_dup" ],
+      [ "Globals", "globals.html", [
+        [ "All", "globals.html", null ],
+        [ "Functions", "globals_func.html", null ]
+      ] ]
+    ] ]
+  ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"index.html"
+"a00002.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
