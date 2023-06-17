@@ -36,7 +36,7 @@ jobs:
           enable-latex: true
       - name: Move PDF to documentation folder
         run: |
-          sudo mkdir ./docs/pdf
+          sudo mkdir -p ./docs/pdf
           sudo cp ./docs/latex/refman.pdf ./docs/pdf/documentation.pdf
           sudo mkdir ./docs/html/docs/pdf
           sudo cp ./docs/latex/refman.pdf ./docs/html/docs/pdf/documentation.pdf
