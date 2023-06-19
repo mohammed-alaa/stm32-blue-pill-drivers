@@ -21,6 +21,7 @@
 /**
  * @defgroup rcc_module RCC Module
  * @brief RCC Module
+ * @details RCC Module contains the functions for controlling the clock system of the microcontroller.
  * @{
  */
 
@@ -1066,7 +1067,7 @@ typedef struct
 } t_RCC_CFGR2;
 
 /**
- * @struct RCC_RegisterMap
+ * @struct t_RCC_RegisterMap
  * @brief RCC Register Map
  */
 typedef struct
@@ -1119,7 +1120,7 @@ typedef struct
 	 * @brief RCC Clock configuration register 2
 	 */
 	t_RCC_CFGR2 CFGR2;
-} RCC_RegisterMap;
+} t_RCC_RegisterMap;
 
 /** @} */
 
@@ -1139,7 +1140,7 @@ typedef struct
  * @def RCC
  * @brief RCC Register Map
  */
-#define RCC REGISTER(RCC_RegisterMap, RCC_BASE_ADDRESS)
+#define RCC REGISTER(t_RCC_RegisterMap, RCC_BASE_ADDRESS)
 
 /** @} */
 /** @} */
