@@ -433,6 +433,139 @@ typedef struct
 } t_RCC_APB2RSTR;
 
 /**
+ * @struct t_RCC_APB1RSTR
+ * @brief RCC APB1 peripheral reset register
+*/
+typedef struct
+{
+	/**
+	 * @brief TIM2 timer reset
+	 * @details This field resets the TIM2 configuration registers
+	 */
+	t_u32 TIM2RST : 1;
+	/**
+	 * @brief TIM3 timer reset
+	 * @details This field resets the TIM3 configuration registers
+	 */
+	t_u32 TIM3RST : 1;
+	/**
+	 * @brief TIM4 timer reset
+	 * @details This field resets the TIM4 configuration registers
+	 */
+	t_u32 TIM4RST : 1;
+	/**
+	 * @brief TIM5 timer reset
+	 * @details This field resets the TIM5 configuration registers
+	 */
+	t_u32 TIM5RST : 1;
+	/**
+	 * @brief TIM6 timer reset
+	 * @details This field resets the TIM6 configuration registers
+	 */
+	t_u32 TIM6RST : 1;
+	/**
+	 * @brief TIM7 timer reset
+	 * @details This field resets the TIM7 configuration registers
+	 */
+	t_u32 TIM7RST : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 5;
+	/**
+	 * @brief Window watchdog reset
+	 * @details This field resets the window watchdog configuration registers
+	 */
+	t_u32 WWDGRST : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 2;
+	/**
+	 * @brief SPI 2 reset
+	 * @details This field resets the SPI 2 configuration registers
+	 */
+	t_u32 SPI2RST : 1;
+	/**
+	 * @brief SPI 3 reset
+	 * @details This field resets the SPI 3 configuration registers
+	 */
+	t_u32 SPI3RST : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 1;
+	/**
+	 * @brief USART 2 reset
+	 * @details This field resets the USART 2 configuration registers
+	 */
+	t_u32 USART2RST : 1;
+	/**
+	 * @brief USART 3 reset
+	 * @details This field resets the USART 3 configuration registers
+	 */
+	t_u32 USART3RST : 1;
+	/**
+	 * @brief UART 4 reset
+	 * @details This field resets the UART 4 configuration registers
+	 */
+	t_u32 UART4RST : 1;
+	/**
+	 * @brief UART 5 reset
+	 * @details This field resets the UART 5 configuration registers
+	 */
+	t_u32 UART5RST : 1;
+	/**
+	 * @brief I2C 1 reset
+	 * @details This field resets the I2C 1 configuration registers
+	 */
+	t_u32 I2C1RST : 1;
+	/**
+	 * @brief I2C 2 reset
+	 * @details This field resets the I2C 2 configuration registers
+	 */
+	t_u32 I2C2RST : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 2;
+	/**
+	 * @brief CAN 1 reset
+	 * @details This field resets the CAN 1 configuration registers
+	 */
+	t_u32 CAN1RST : 1;
+	/**
+	 * @brief CAN 2 reset
+	 * @details This field resets the CAN 2 configuration registers
+	 */
+	t_u32 CAN2RST : 1;
+	/**
+	 * @brief Backup interface reset
+	 * @details This field resets the backup interface configuration registers
+	 */
+	t_u32 BKPRST : 1;
+	/**
+	 * @brief Power interface reset
+	 * @details This field resets the power interface configuration registers
+	 */
+	t_u32 PWRRST : 1;
+	/**
+	 * @brief DAC interface reset
+	 * @details This field resets the DAC interface configuration registers
+	 */
+	t_u32 DACRST : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 2;
+} t_RCC_APB1RSTR;
+
+/**
  * @struct RCC_RegisterMap
  * @brief RCC Register Map
  */
@@ -454,6 +587,10 @@ typedef struct
 	 * @brief RCC APB2 peripheral reset register
 	 */
 	t_RCC_APB2RSTR APB2RSTR;
+	/**
+	 * @brief RCC APB1 peripheral reset register
+	 */
+	t_RCC_APB1RSTR APB1RSTR;
 } RCC_RegisterMap;
 
 /** @} */
