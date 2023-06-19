@@ -566,6 +566,84 @@ typedef struct
 } t_RCC_APB1RSTR;
 
 /**
+ * @struct t_RCC_AHBENR
+ * @brief RCC AHB peripheral clock register
+*/
+typedef struct
+{
+	/**
+	 * @brief DMA1 clock enable
+	 * @details This field enables the DMA1 clock
+	 */
+	t_u32 DMA1EN : 1;
+	/**
+	 * @brief DMA2 clock enable
+	 * @details This field enables the DMA2 clock
+	 */
+	t_u32 DMA2EN : 1;
+	/**
+	 * @brief SRAM interface clock enable
+	 * @details This field enables the SRAM interface clock
+	 */
+	t_u32 SRAMEN : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 1;
+	/**
+	 * @brief FLITF clock enable
+	 * @details This field enables the FLITF clock
+	 */
+	t_u32 FLITFEN : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 1;
+	/**
+	 * @brief CRC clock enable
+	 * @details This field enables the CRC clock
+	 */
+	t_u32 CRCEN : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 5;
+	/**
+	 * @brief OTG FS clock enable
+	 * @details This field enables the OTG FS clock
+	 */
+	t_u32 OTGFSEN : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 1;
+	/**
+	 * @brief Ethernet MAC clock enable
+	 * @details This field enables the Ethernet MAC clock
+	 */
+	t_u32 ETHMACEN : 1;
+	/**
+	 * @brief Ethernet MAC TX clock enable
+	 * @details This field enables the Ethernet MAC TX clock
+	 */
+	t_u32 ETHMACTXEN : 1;
+	/**
+	 * @brief Ethernet MAC RX clock enable
+	 * @details This field enables the Ethernet MAC RX clock
+	 */
+	t_u32 ETHMACRXEN : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 15;
+} t_RCC_AHBENR;
+
+/**
  * @struct RCC_RegisterMap
  * @brief RCC Register Map
  */
@@ -591,6 +669,10 @@ typedef struct
 	 * @brief RCC APB1 peripheral reset register
 	 */
 	t_RCC_APB1RSTR APB1RSTR;
+	/**
+	 * @brief RCC AHB peripheral clock register
+	 */
+	t_RCC_AHBENR AHBENR;
 } RCC_RegisterMap;
 
 /** @} */
