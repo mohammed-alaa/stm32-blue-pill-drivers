@@ -984,6 +984,39 @@ typedef struct
 } t_RCC_CSR;
 
 /**
+ * @struct t_RCC_AHBRSTR
+ * @brief RCC AHB peripheral reset register
+ */
+typedef struct
+{
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 12;
+	/**
+	 * @brief OTG FS module reset
+	 * @details This field resets the OTG FS module.
+	 */
+	t_u32 OTGFSRST : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 1;
+	/**
+	 * @brief Ethernet MAC reset
+	 * @details This field resets the Ethernet MAC.
+	 */
+	t_u32 ETHMACRST : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 17;
+} t_RCC_AHBRSTR;
+
+/**
  * @struct RCC_RegisterMap
  * @brief RCC Register Map
  */
@@ -1029,6 +1062,10 @@ typedef struct
 	 * @brief RCC Control/status register
 	 */
 	t_RCC_CSR CSR;
+	/**
+	 * @brief RCC AHB peripheral reset register
+	 */
+	t_RCC_AHBRSTR AHBRSTR;
 } RCC_RegisterMap;
 
 /** @} */
