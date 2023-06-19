@@ -179,8 +179,9 @@ typedef struct
 	/**
 	 * @brief LSB of PLL division factor PREDIV1
 	 * @details Select the LSB of the division factor for PLL input clock
+	 * @warning This bit is the same as PREDIV1[0] bit in RCC_CFGR2 register, so treating it as reserved as separation is not needed
 	 */
-	t_u32 PLLXTPRE : 1;
+	t_u32 : 1;
 	/**
 	 * @brief PLL multiplication factor
 	 * @details Configure the PLL multiplication factor
@@ -1017,6 +1018,54 @@ typedef struct
 } t_RCC_AHBRSTR;
 
 /**
+ * @struct t_RCC_CFGR2
+ * @brief RCC Clock configuration register 2
+ */
+typedef struct
+{
+	/**
+	 * @brief PREDIV1 division factor
+	 * @details This field defines the division factor for the main PLL and PLLI2S input clock.
+	 */
+	t_u32 PREDIV1 : 4;
+	/**
+	 * @brief PREDIV2 division factor
+	 * @details This field defines the division factor for the main PLL and PLLI2S input clock.
+	 */
+	t_u32 PREDIV2 : 4;
+	/**
+	 * @brief PLL2 multiplication factor
+	 * @details This field defines the multiplication factor for PLL2 VCO input clock.
+	 */
+	t_u32 PLL2MUL : 4;
+	/**
+	 * @brief PLL3 multiplication factor
+	 * @details This field defines the multiplication factor for PLL3 VCO input clock.
+	 */
+	t_u32 PLL3MUL : 4;
+	/**
+	 * @brief PREDIV1SRC PREDIV1 entry clock source
+	 * @details This field defines the PREDIV1 clock source.
+	 */
+	t_u32 PREDIV1SRC : 1;
+	/**
+	 * @brief I2S2 clock source
+	 * @details This field defines the I2S2 clock source.
+	 */
+	t_u32 I2S2SRC : 1;
+	/**
+	 * @brief I2S3 clock source
+	 * @details This field defines the I2S3 clock source.
+	 */
+	t_u32 I2S3SRC : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 13;
+} t_RCC_CFGR2;
+
+/**
  * @struct RCC_RegisterMap
  * @brief RCC Register Map
  */
@@ -1066,6 +1115,10 @@ typedef struct
 	 * @brief RCC AHB peripheral reset register
 	 */
 	t_RCC_AHBRSTR AHBRSTR;
+	/**
+	 * @brief RCC Clock configuration register 2
+	 */
+	t_RCC_CFGR2 CFGR2;
 } RCC_RegisterMap;
 
 /** @} */
