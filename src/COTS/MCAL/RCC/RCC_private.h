@@ -211,7 +211,7 @@ typedef struct
 /**
  * @struct t_RCC_CIR
  * @brief RCC clock interrupt register
-*/
+ */
 typedef struct
 {
 	/**
@@ -350,6 +350,89 @@ typedef struct
 } t_RCC_CIR;
 
 /**
+ * @struct t_RCC_APB2RSTR
+ * @brief RCC APB2 peripheral reset register
+ */
+typedef struct
+{
+	/**
+	 * @brief Alternate function I/O reset
+	 * @details This field resets the IO port configuration registers
+	 */
+	t_u32 AFIORST : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 1;
+	/**
+	 * @brief IO port A reset
+	 * @details This field resets the IO port A configuration registers
+	 */
+	t_u32 IOPARST : 1;
+	/**
+	 * @brief IO port B reset
+	 * @details This field resets the IO port B configuration registers
+	 */
+	t_u32 IOPBRST : 1;
+	/**
+	 * @brief IO port C reset
+	 * @details This field resets the IO port C configuration registers
+	 */
+	t_u32 IOPCRST : 1;
+	/**
+	 * @brief IO port D reset
+	 * @details This field resets the IO port D configuration registers
+	 */
+	t_u32 IOPDRST : 1;
+	/**
+	 * @brief IO port E reset
+	 * @details This field resets the IO port E configuration registers
+	 */
+	t_u32 IOPERST : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 2;
+	/**
+	 * @brief ADC 1 interface reset
+	 * @details This field resets the ADC 1 configuration registers
+	 */
+	t_u32 ADC1RST : 1;
+	/**
+	 * @brief ADC 2 interface reset
+	 * @details This field resets the ADC 2 configuration registers
+	 */
+	t_u32 ADC2RST : 1;
+	/**
+	 * @brief TIM1 timer reset
+	 * @details This field resets the TIM1 configuration registers
+	 */
+	t_u32 TIM1RST : 1;
+	/**
+	 * @brief SPI 1 reset
+	 * @details This field resets the SPI 1 configuration registers
+	 */
+	t_u32 SPI1RST : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 1;
+	/**
+	 * @brief USART1 reset
+	 * @details This field resets the USART1 configuration registers
+	 */
+	t_u32 USART1RST : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 17;
+} t_RCC_APB2RSTR;
+
+/**
  * @struct RCC_RegisterMap
  * @brief RCC Register Map
  */
@@ -367,6 +450,10 @@ typedef struct
 	 * @brief Clock interrupt register
 	 */
 	t_RCC_CIR CIR;
+	/**
+	 * @brief RCC APB2 peripheral reset register
+	 */
+	t_RCC_APB2RSTR APB2RSTR;
 } RCC_RegisterMap;
 
 /** @} */
