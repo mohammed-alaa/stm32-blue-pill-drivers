@@ -860,6 +860,60 @@ typedef struct
 } t_RCC_APB1ENR;
 
 /**
+ * @struct t_RCC_BDCR
+ * @brief RCC Backup domain control register
+ */
+typedef struct
+{
+	/**
+	 * @brief External Low Speed oscillator enable
+	 * @details This field enables the external Low Speed oscillator (LSE)
+	 */
+	t_u32 LSEON : 1;
+	/**
+	 * @brief External Low Speed oscillator ready
+	 * @details This field is set and cleared by hardware to indicate when the external Low Speed oscillator (LSE) is stable.
+	 * @warning This field is read-only
+	 */
+	t_u32 LSERDY : 1;
+	/**
+	 * @brief External Low Speed oscillator bypass
+	 * @details This field is used to bypass the oscillator with an external clock.
+	 */
+	t_u32 LSEBYP : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 5;
+	/**
+	 * @brief RTC clock source selection
+	 * @details This field selects the clock source to be used for the RTC.
+	 */
+	t_u32 RTCSEL : 2;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 5;
+	/**
+	 * @brief RTC clock enable
+	 * @details This field enables the RTC clock
+	 */
+	t_u32 RTCEN : 1;
+	/**
+	 * @brief Backup domain software reset
+	 * @details This field forces the Backup domain to reset.
+	 */
+	t_u32 BDRST : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 15;
+} t_RCC_BDCR;
+
+/**
  * @struct RCC_RegisterMap
  * @brief RCC Register Map
  */
@@ -897,6 +951,10 @@ typedef struct
 	 * @brief RCC APB1 peripheral clock enable register
 	 */
 	t_RCC_APB1ENR APB1ENR;
+	/**
+	 * @brief RCC Backup domain control register
+	 */
+	t_RCC_BDCR BDCR;
 } RCC_RegisterMap;
 
 /** @} */
