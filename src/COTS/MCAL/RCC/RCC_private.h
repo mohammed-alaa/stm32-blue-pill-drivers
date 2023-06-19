@@ -914,6 +914,76 @@ typedef struct
 } t_RCC_BDCR;
 
 /**
+ * @struct t_RCC_CSR
+ * @brief RCC Control/status register
+ */
+typedef struct
+{
+	/**
+	 * @brief Internal low speed oscillator enable
+	 * @details This field enables the internal low speed oscillator (LSI)
+	 */
+	t_u32 LSION : 1;
+	/**
+	 * @brief Internal low speed oscillator ready
+	 * @details This field is set and cleared by hardware to indicate when the internal low speed oscillator (LSI) is stable.
+	 * @warning This field is read-only
+	 */
+	t_u32 LSIRDY : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 22;
+	/**
+	 * @brief Remove reset flag
+	 * @details This field resets the reset flags.
+	 */
+	t_u32 RMVF : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 1;
+	/**
+	 * @brief Pin reset flag
+	 * @details This field indicates that a reset has been caused by an NRST pin reset
+	 * @warning This field is read-only
+	 */
+	t_u32 PINRSTF : 1;
+	/**
+	 * @brief POR/PDR reset flag
+	 * @details This field indicates that a reset has been caused by a POR/PDR reset
+	 * @warning This field is read-only
+	 */
+	t_u32 PORRSTF : 1;
+	/**
+	 * @brief Software reset flag
+	 * @details This field indicates that a reset has been caused by a software reset
+	 * @warning This field is read-only
+	 */
+	t_u32 SFTRSTF : 1;
+	/**
+	 * @brief Independent watchdog reset flag
+	 * @details This field indicates that a reset has been caused by an independent watchdog reset
+	 * @warning This field is read-only
+	 */
+	t_u32 IWDGRSTF : 1;
+	/**
+	 * @brief Window watchdog reset flag
+	 * @details This field indicates that a reset has been caused by a window watchdog reset
+	 * @warning This field is read-only
+	 */
+	t_u32 WWDGRSTF : 1;
+	/**
+	 * @brief Low-power reset flag
+	 * @details This field indicates that a reset has been caused by a low-power reset
+	 * @warning This field is read-only
+	 */
+	t_u32 LPWRRSTF : 1;
+} t_RCC_CSR;
+
+/**
  * @struct RCC_RegisterMap
  * @brief RCC Register Map
  */
@@ -955,6 +1025,10 @@ typedef struct
 	 * @brief RCC Backup domain control register
 	 */
 	t_RCC_BDCR BDCR;
+	/**
+	 * @brief RCC Control/status register
+	 */
+	t_RCC_CSR CSR;
 } RCC_RegisterMap;
 
 /** @} */
