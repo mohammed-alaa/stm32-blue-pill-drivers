@@ -435,7 +435,7 @@ typedef struct
 /**
  * @struct t_RCC_APB1RSTR
  * @brief RCC APB1 peripheral reset register
-*/
+ */
 typedef struct
 {
 	/**
@@ -568,7 +568,7 @@ typedef struct
 /**
  * @struct t_RCC_AHBENR
  * @brief RCC AHB peripheral clock register
-*/
+ */
 typedef struct
 {
 	/**
@@ -646,7 +646,7 @@ typedef struct
 /**
  * @struct t_RCC_APB2ENR
  * @brief RCC APB2 peripheral clock enable register
-*/
+ */
 typedef struct
 {
 	/**
@@ -727,6 +727,139 @@ typedef struct
 } t_RCC_APB2ENR;
 
 /**
+ * @struct t_RCC_APB1ENR
+ * @brief RCC APB1 peripheral clock enable register
+ */
+typedef struct
+{
+	/**
+	 * @brief Timer 2 clock enable
+	 * @details This field enables the Timer 2 clock
+	 */
+	t_u32 TIM2EN : 1;
+	/**
+	 * @brief Timer 3 clock enable
+	 * @details This field enables the Timer 3 clock
+	 */
+	t_u32 TIM3EN : 1;
+	/**
+	 * @brief Timer 4 clock enable
+	 * @details This field enables the Timer 4 clock
+	 */
+	t_u32 TIM4EN : 1;
+	/**
+	 * @brief Timer 5 clock enable
+	 * @details This field enables the Timer 5 clock
+	 */
+	t_u32 TIM5EN : 1;
+	/**
+	 * @brief Timer 6 clock enable
+	 * @details This field enables the Timer 6 clock
+	 */
+	t_u32 TIM6EN : 1;
+	/**
+	 * @brief Timer 7 clock enable
+	 * @details This field enables the Timer 7 clock
+	 */
+	t_u32 TIM7EN : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 5;
+	/**
+	 * @brief Window watchdog clock enable
+	 * @details This field enables the Window watchdog clock
+	 */
+	t_u32 WWDGEN : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 2;
+	/**
+	 * @brief SPI 2 clock enable
+	 * @details This field enables the SPI 2 clock
+	 */
+	t_u32 SPI2EN : 1;
+	/**
+	 * @brief SPI 3 clock enable
+	 * @details This field enables the SPI 3 clock
+	 */
+	t_u32 SPI3EN : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 1;
+	/**
+	 * @brief USART 2 clock enable
+	 * @details This field enables the USART 2 clock
+	 */
+	t_u32 USART2EN : 1;
+	/**
+	 * @brief USART 3 clock enable
+	 * @details This field enables the USART 3 clock
+	 */
+	t_u32 USART3EN : 1;
+	/**
+	 * @brief UART 4 clock enable
+	 * @details This field enables the UART 4 clock
+	 */
+	t_u32 UART4EN : 1;
+	/**
+	 * @brief UART 5 clock enable
+	 * @details This field enables the UART 5 clock
+	 */
+	t_u32 UART5EN : 1;
+	/**
+	 * @brief I2C 1 clock enable
+	 * @details This field enables the I2C 1 clock
+	 */
+	t_u32 I2C1EN : 1;
+	/**
+	 * @brief I2C 2 clock enable
+	 * @details This field enables the I2C 2 clock
+	 */
+	t_u32 I2C2EN : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 2;
+	/**
+	 * @brief CAN 1 clock enable
+	 * @details This field enables the CAN 1 clock
+	 */
+	t_u32 CAN1EN : 1;
+	/**
+	 * @brief CAN 2 clock enable
+	 * @details This field enables the CAN 2 clock
+	 */
+	t_u32 CAN2EN : 1;
+	/**
+	 * @brief Backup interface clock enable
+	 * @details This field enables the Backup interface clock
+	 */
+	t_u32 BKPEN : 1;
+	/**
+	 * @brief Power interface clock enable
+	 * @details This field enables the Power interface clock
+	 */
+	t_u32 PWREN : 1;
+	/**
+	 * @brief DAC interface clock enable
+	 * @details This field enables the DAC interface clock
+	 */
+	t_u32 DACEN : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 2;
+} t_RCC_APB1ENR;
+
+/**
  * @struct RCC_RegisterMap
  * @brief RCC Register Map
  */
@@ -760,6 +893,10 @@ typedef struct
 	 * @brief RCC APB2 peripheral clock enable register
 	 */
 	t_RCC_APB2ENR APB2ENR;
+	/**
+	 * @brief RCC APB1 peripheral clock enable register
+	 */
+	t_RCC_APB1ENR APB1ENR;
 } RCC_RegisterMap;
 
 /** @} */
