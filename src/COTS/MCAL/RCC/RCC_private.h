@@ -644,6 +644,89 @@ typedef struct
 } t_RCC_AHBENR;
 
 /**
+ * @struct t_RCC_APB2ENR
+ * @brief RCC APB2 peripheral clock enable register
+*/
+typedef struct
+{
+	/**
+	 * @brief Alternate function I/O clock enable
+	 * @details This field enables the alternate function I/O clock
+	 */
+	t_u32 AFIOEN : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 1;
+	/**
+	 * @brief I/O port A clock enable
+	 * @details This field enables the I/O port A clock
+	 */
+	t_u32 IOPAEN : 1;
+	/**
+	 * @brief I/O port B clock enable
+	 * @details This field enables the I/O port B clock
+	 */
+	t_u32 IOPBEN : 1;
+	/**
+	 * @brief I/O port C clock enable
+	 * @details This field enables the I/O port C clock
+	 */
+	t_u32 IOPCEN : 1;
+	/**
+	 * @brief I/O port D clock enable
+	 * @details This field enables the I/O port D clock
+	 */
+	t_u32 IOPDEN : 1;
+	/**
+	 * @brief I/O port E clock enable
+	 * @details This field enables the I/O port E clock
+	 */
+	t_u32 IOPEEN : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 2;
+	/**
+	 * @brief ADC 1 interface clock enable
+	 * @details This field enables the ADC 1 interface clock
+	 */
+	t_u32 ADC1EN : 1;
+	/**
+	 * @brief ADC 2 interface clock enable
+	 * @details This field enables the ADC 2 interface clock
+	 */
+	t_u32 ADC2EN : 1;
+	/**
+	 * @brief TIM1 Timer clock enable
+	 * @details This field enables the TIM1 Timer clock
+	 */
+	t_u32 TIM1EN : 1;
+	/**
+	 * @brief SPI 1 clock enable
+	 * @details This field enables the SPI 1 clock
+	 */
+	t_u32 SPI1EN : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 1;
+	/**
+	 * @brief USART1 clock enable
+	 * @details This field enables the USART1 clock
+	 */
+	t_u32 USART1EN : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 17;
+} t_RCC_APB2ENR;
+
+/**
  * @struct RCC_RegisterMap
  * @brief RCC Register Map
  */
@@ -673,6 +756,10 @@ typedef struct
 	 * @brief RCC AHB peripheral clock register
 	 */
 	t_RCC_AHBENR AHBENR;
+	/**
+	 * @brief RCC APB2 peripheral clock enable register
+	 */
+	t_RCC_APB2ENR APB2ENR;
 } RCC_RegisterMap;
 
 /** @} */
