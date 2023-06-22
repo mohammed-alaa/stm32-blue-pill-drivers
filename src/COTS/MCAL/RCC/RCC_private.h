@@ -180,9 +180,9 @@ typedef struct
 	/**
 	 * @brief LSB of PLL division factor PREDIV1
 	 * @details Select the LSB of the division factor for PLL input clock
-	 * @warning This bit is the same as PREDIV1[0] bit in RCC_CFGR2 register, so treating it as reserved as separation is not needed
+	 * @warning This bit is the same as PREDIV1[0] bit in RCC_CFGR2 register
 	 */
-	t_u32 : 1;
+	t_u32 PLLXTPRE: 1;
 	/**
 	 * @brief PLL multiplication factor
 	 * @details Configure the PLL multiplication factor
