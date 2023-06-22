@@ -156,6 +156,27 @@ enum RCC_ADCPrescaler
 	 */
 	RCC_ADCPrescaler_DividedBy8,
 };
+
+/**
+ * @enum RCC_SystemClock
+ * @brief This enum contains the system clock sources
+ * @details This enum contains the system clock sources
+ */
+enum RCC_SystemClock
+{
+	/**
+	 * @brief HSI clock selected as system clock
+	 */
+	RCC_SystemClock_HSI = 0,
+	/**
+	 * @brief HSE clock selected as system clock
+	 */
+	RCC_SystemClock_HSE,
+	/**
+	 * @brief PLL clock selected as system clock
+	 */
+	RCC_SystemClock_PLL,
+};
 /** @} */
 /** @} */
 
