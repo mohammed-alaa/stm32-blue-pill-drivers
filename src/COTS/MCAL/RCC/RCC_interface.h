@@ -132,7 +132,30 @@ enum RCC_APBPrescaler
 	RCC_APBPrescaler_DividedBy16,
 };
 
-
+/**
+ * @enum RCC_ADCPrescaler
+ * @brief This enum contains the prescaler factors of the ADC bus
+ * @details This enum contains the prescaler factors of the ADC bus
+ */
+enum RCC_ADCPrescaler
+{
+	/**
+	 * @brief ADC bus divided by 2
+	 */
+	RCC_ADCPrescaler_DividedBy2 = 0,
+	/**
+	 * @brief ADC bus divided by 4
+	 */
+	RCC_ADCPrescaler_DividedBy4,
+	/**
+	 * @brief ADC bus divided by 6
+	 */
+	RCC_ADCPrescaler_DividedBy6,
+	/**
+	 * @brief ADC bus divided by 8
+	 */
+	RCC_ADCPrescaler_DividedBy8,
+};
 /** @} */
 /** @} */
 
