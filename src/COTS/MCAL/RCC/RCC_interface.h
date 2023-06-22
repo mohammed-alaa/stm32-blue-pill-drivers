@@ -104,33 +104,35 @@ enum RCC_AHBPrescaler
 };
 
 /**
- * @enum RCC_APB1Prescaler
- * @brief This enum contains the prescaler factors of the APB1 bus
- * @details This enum contains the prescaler factors of the APB1 bus
+ * @enum RCC_APBPrescaler
+ * @brief This enum contains the prescaler factors of the APB (1 & 2) bus
+ * @details This enum contains the prescaler factors of the APB (1 & 2) bus
  */
-enum RCC_APB1Prescaler
+enum RCC_APBPrescaler
 {
 	/**
 	 * @brief APB1 bus not divided
 	 */
-	RCC_APB1Prescaler_NotDivided = 0,
+	RCC_APBPrescaler_NotDivided = 0,
 	/**
 	 * @brief APB1 bus divided by 2
 	 */
-	RCC_APB1Prescaler_DividedBy2 = 0b100,
+	RCC_APBPrescaler_DividedBy2 = 0b100,
 	/**
 	 * @brief APB1 bus divided by 4
 	 */
-	RCC_APB1Prescaler_DividedBy4,
+	RCC_APBPrescaler_DividedBy4,
 	/**
 	 * @brief APB1 bus divided by 8
 	 */
-	RCC_APB1Prescaler_DividedBy8,
+	RCC_APBPrescaler_DividedBy8,
 	/**
 	 * @brief APB1 bus divided by 16
 	 */
-	RCC_APB1Prescaler_DividedBy16,
+	RCC_APBPrescaler_DividedBy16,
 };
+
+
 /** @} */
 /** @} */
 
