@@ -58,6 +58,50 @@ enum RCC_PLLMulFactors
 	RCC_PLLMulFactors_6_5 = 0b1101,
 };
 
+/**
+ * @enum RCC_AHBPrescaler
+ * @brief This enum contains the prescaler factors of the AHB bus
+ * @details This enum contains the prescaler factors of the AHB bus
+ */
+enum RCC_AHBPrescaler
+{
+	/**
+	 * @brief AHB bus not divided
+	 */
+	RCC_AHBPrescaler_NotDivided = 0,
+	/**
+	 * @brief AHB bus divided by 2
+	 */
+	RCC_AHBPrescaler_DividedBy2 = 0b1000,
+	/**
+	 * @brief AHB bus divided by 4
+	 */
+	RCC_AHBPrescaler_DividedBy4,
+	/**
+	 * @brief AHB bus divided by 8
+	 */
+	RCC_AHBPrescaler_DividedBy8,
+	/**
+	 * @brief AHB bus divided by 16
+	 */
+	RCC_AHBPrescaler_DividedBy16,
+	/**
+	 * @brief AHB bus divided by 64
+	 */
+	RCC_AHBPrescaler_DividedBy64,
+	/**
+	 * @brief AHB bus divided by 128
+	 */
+	RCC_AHBPrescaler_DividedBy128,
+	/**
+	 * @brief AHB bus divided by 256
+	 */
+	RCC_AHBPrescaler_DividedBy256,
+	/**
+	 * @brief AHB bus divided by 512
+	 */
+	RCC_AHBPrescaler_DividedBy512,
+};
 
 /** @} */
 /** @} */
