@@ -220,6 +220,23 @@ enum RCC_MCO
 	RCC_MCO_PLL_DividedBy2,
 };
 
+/**
+ * @enum RCC_USBPrescalerFactors
+ * @brief This enum contains the USB prescaler factors
+ * @details This enum contains the USB prescaler factors
+ */
+enum RCC_USBPrescaler
+{
+	/**
+	 * @brief USB clock divided by 1.5
+	 */
+	RCC_USBPrescalerFactors_1_5 = 0,
+	/**
+	 * @brief USB clock divided by 1
+	 */
+	RCC_USBPrescalerFactors_1,
+};
+
 /** @} */
 /** @} */
 
