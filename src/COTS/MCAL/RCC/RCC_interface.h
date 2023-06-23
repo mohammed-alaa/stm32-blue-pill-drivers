@@ -305,9 +305,17 @@ enum RCC_APB2Peripherals
 	 */
 	RCC_APB2Peripherals_PORTE,
 	/**
+	 * @brief I/O port F clock
+	 */
+	RCC_APB2Peripherals_PORTF,
+	/**
+	 * @brief I/O port G clock
+	 */
+	RCC_APB2Peripherals_PORTG,
+	/**
 	 * @brief ADC 1 interface clock
 	 */
-	RCC_APB2Peripherals_ADC1 = 9,
+	RCC_APB2Peripherals_ADC1,
 	/**
 	 * @brief ADC 2 interface clock
 	 */
@@ -321,9 +329,167 @@ enum RCC_APB2Peripherals
 	 */
 	RCC_APB2Peripherals_SPI1,
 	/**
+	 * @brief Timer 8 (TIM8) clock
+	 */
+	RCC_APB2Peripherals_TIM8,
+	/**
 	 * @brief USART1 clock
 	 */
-	RCC_APB2Peripherals_USART1 = 14
+	RCC_APB2Peripherals_USART1,
+	/**
+	 * @brief ADC 3 interface clock
+	 */
+	RCC_APB2Peripherals_ADC3,
+	/**
+	 * @brief Timer 9 (TIM9) clock
+	 */
+	RCC_APB2Peripherals_TIM9 = 19,
+	/**
+	 * @brief Timer 10 (TIM10) clock
+	 */
+	RCC_APB2Peripherals_TIM10,
+	/**
+	 * @brief Timer 11 (TIM11) clock
+	 */
+	RCC_APB2Peripherals_TIM11,
+};
+
+/**
+ * @enum RCC_APB1Peripherals
+ * @brief This enum contains the APB1 peripherals that are connected to the APB1 bus
+ * @details This enum contains the APB1 peripherals that are connected to the APB1 bus
+ */
+enum RCC_APB1Peripherals
+{
+	/**
+	 * @brief Timer 2 (TIM2) clock
+	 */
+	RCC_APB1Peripherals_TIM2 = 0,
+	/**
+	 * @brief Timer 3 (TIM3) clock
+	 */
+	RCC_APB1Peripherals_TIM3,
+	/**
+	 * @brief Timer 4 (TIM4) clock
+	 */
+	RCC_APB1Peripherals_TIM4,
+	/**
+	 * @brief Timer 5 (TIM5) clock
+	 */
+	RCC_APB1Peripherals_TIM5,
+	/**
+	 * @brief Timer 6 (TIM6) clock
+	 */
+	RCC_APB1Peripherals_TIM6,
+	/**
+	 * @brief Timer 7 (TIM7) clock
+	 */
+	RCC_APB1Peripherals_TIM7,
+	/**
+	 * @brief Timer 12 (TIM12) clock
+	 */
+	RCC_APB1Peripherals_TIM12,
+	/**
+	 * @brief Timer 13 (TIM13) clock
+	 */
+	RCC_APB1Peripherals_TIM13,
+	/**
+	 * @brief Timer 14 (TIM14) clock
+	 */
+	RCC_APB1Peripherals_TIM14,
+	/**
+	 * @brief Window watchdog (WWDG) clock
+	 */
+	RCC_APB1Peripherals_WWDG = 11,
+	/**
+	 * @brief SPI 2 clock
+	 */
+	RCC_APB1Peripherals_SPI2 = 14,
+	/**
+	 * @brief SPI 3 clock
+	 */
+	RCC_APB1Peripherals_SPI3,
+	/**
+	 * @brief USART 2 clock
+	 */
+	RCC_APB1Peripherals_USART2 = 17,
+	/**
+	 * @brief USART 3 clock
+	 */
+	RCC_APB1Peripherals_USART3,
+	/**
+	 * @brief UART 4 clock
+	 */
+	RCC_APB1Peripherals_UART4,
+	/**
+	 * @brief UART 5 clock
+	 */
+	RCC_APB1Peripherals_UART5,
+	/**
+	 * @brief I2C 1 clock
+	 */
+	RCC_APB1Peripherals_I2C1,
+	/**
+	 * @brief I2C 2 clock
+	 */
+	RCC_APB1Peripherals_I2C2,
+	/**
+	 * @brief USB clock
+	 */
+	RCC_APB1Peripherals_USB,
+	/**
+	 * @brief CAN clock
+	 */
+	RCC_APB1Peripherals_CAN = 25,
+	/**
+	 * @brief Backup interface clock
+	 */
+	RCC_APB1Peripherals_BKP = 27,
+	/**
+	 * @brief Power interface clock
+	 */
+	RCC_APB1Peripherals_PWR,
+	/**
+	 * @brief DAC interface clock
+	 */
+	RCC_APB1Peripherals_DAC
+};
+
+/**
+ * @enum RCC_AHBPeripherals
+ * @brief This enum contains the AHB peripherals that are connected to the AHB bus
+ * @details This enum contains the AHB peripherals that are connected to the AHB bus
+ */
+enum RCC_AHBPeripherals
+{
+	/**
+	 * @brief DMA 1 clock
+	 */
+	RCC_AHBPeripherals_DMA1 = 0,
+	/**
+	 * @brief DMA 2 clock
+	 */
+	RCC_AHBPeripherals_DMA2,
+	/**
+	 * @brief SRAM interface clock
+	 */
+	RCC_AHBPeripherals_SRAM,
+	/**
+	 * @brief FLITF clock
+	 */
+	RCC_AHBPeripherals_FLITF = 4,
+	/**
+	 * @brief CRC clock
+	 */
+	RCC_AHBPeripherals_CRC = 6,
+	/**
+	 * @brief FSMC clock
+	 */
+	RCC_AHBPeripherals_FSMC = 8,
+	/**
+	 * @brief SDIO clock
+	 */
+	RCC_AHBPeripherals_SDIO = 10,
 };
 
 /** @} */
