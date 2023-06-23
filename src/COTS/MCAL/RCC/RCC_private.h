@@ -457,10 +457,25 @@ typedef struct
 	 */
 	t_u32 TIM7RST : 1;
 	/**
+	 * @brief TIM12 timer reset
+	 * @details This field resets the TIM12 configuration registers
+	 */
+	t_u32 TIM12RST : 1;
+	/**
+	 * @brief TIM13 timer reset
+	 * @details This field resets the TIM13 configuration registers
+	 */
+	t_u32 TIM13RST : 1;
+	/**
+	 * @brief TIM14 timer reset
+	 * @details This field resets the TIM14 configuration registers
+	 */
+	t_u32 TIM14RST : 1;
+	/**
 	 * @brief Reserved bit(s)
 	 * @attention This field is reserved and must be kept at reset value.
 	 */
-	t_u32 : 5;
+	t_u32 : 2;
 	/**
 	 * @brief Window watchdog reset
 	 * @details This field resets the window watchdog configuration registers
@@ -517,20 +532,25 @@ typedef struct
 	 */
 	t_u32 I2C2RST : 1;
 	/**
+	 * @brief USB interface reset
+	 * @details This field resets the USB interface configuration registers
+	 */
+	t_u32 USBRST : 1;
+	/**
 	 * @brief Reserved bit(s)
 	 * @attention This field is reserved and must be kept at reset value.
 	 */
-	t_u32 : 2;
+	t_u32 : 1;
 	/**
-	 * @brief CAN 1 reset
-	 * @details This field resets the CAN 1 configuration registers
+	 * @brief CAN reset
+	 * @details This field resets the CAN configuration registers
 	 */
-	t_u32 CAN1RST : 1;
+	t_u32 CANRST : 1;
 	/**
-	 * @brief CAN 2 reset
-	 * @details This field resets the CAN 2 configuration registers
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
 	 */
-	t_u32 CAN2RST : 1;
+	t_u32 : 1;
 	/**
 	 * @brief Backup interface reset
 	 * @details This field resets the backup interface configuration registers
