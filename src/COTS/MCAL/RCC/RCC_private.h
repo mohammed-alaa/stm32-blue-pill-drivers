@@ -349,10 +349,15 @@ typedef struct
 	 */
 	t_u32 IOPERST : 1;
 	/**
-	 * @brief Reserved bit(s)
-	 * @attention This field is reserved and must be kept at reset value.
+	 * @brief IO port F reset
+	 * @details This field resets the IO port F configuration registers
 	 */
-	t_u32 : 2;
+	t_u32 IOPFRST : 1;
+	/**
+	 * @brief IO port G reset
+	 * @details This field resets the IO port G configuration registers
+	 */
+	t_u32 IOPGRST : 1;
 	/**
 	 * @brief ADC 1 interface reset
 	 * @details This field resets the ADC 1 configuration registers
@@ -374,20 +379,45 @@ typedef struct
 	 */
 	t_u32 SPI1RST : 1;
 	/**
-	 * @brief Reserved bit(s)
-	 * @attention This field is reserved and must be kept at reset value.
+	 * @brief TIM8 timer reset
+	 * @details This field resets the TIM8 configuration registers
 	 */
-	t_u32 : 1;
+	t_u32 TIM8RST : 1;
 	/**
 	 * @brief USART1 reset
 	 * @details This field resets the USART1 configuration registers
 	 */
 	t_u32 USART1RST : 1;
 	/**
+	 * @brief ADC 3 interface reset
+	 * @details This field resets the ADC 3 configuration registers
+	 */
+	t_u32 ADC3RST : 1;
+	/**
 	 * @brief Reserved bit(s)
 	 * @attention This field is reserved and must be kept at reset value.
 	 */
-	t_u32 : 17;
+	t_u32 : 3;
+	/**
+	 * @brief TIM9 timer reset
+	 * @details This field resets the TIM9 configuration registers
+	 */
+	t_u32 TIM9RST : 1;
+	/**
+	 * @brief TIM10 timer reset
+	 * @details This field resets the TIM10 configuration registers
+	 */
+	t_u32 TIM10RST : 1;
+	/**
+	 * @brief TIM11 timer reset
+	 * @details This field resets the TIM11 configuration registers
+	 */
+	t_u32 TIM11RST : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 10;
 } t_RCC_APB2RSTR;
 
 /**
