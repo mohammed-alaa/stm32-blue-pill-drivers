@@ -344,11 +344,11 @@ typedef enum
 } t_RCC_APB2Peripherals;
 
 /**
- * @enum RCC_APB1Peripherals
+ * @typedef t_RCC_APB1Peripherals
  * @brief This enum contains the APB1 peripherals that are connected to the APB1 bus
  * @details This enum contains the APB1 peripherals that are connected to the APB1 bus
  */
-enum RCC_APB1Peripherals
+typedef enum
 {
 	/**
 	 * @brief Timer 2 (TIM2) clock
@@ -430,7 +430,7 @@ enum RCC_APB1Peripherals
 	 * @brief DAC interface clock
 	 */
 	RCC_APB1Peripherals_DAC
-};
+} t_RCC_APB1Peripherals;
 
 /**
  * @enum RCC_AHBPeripherals
@@ -479,6 +479,20 @@ void RCC_vEnablePeripheralABP2(t_RCC_APB2Peripherals enuPeripheral);
  * @param[in] enuPeripheral Peripheral to be disabled
  */
 void RCC_vDisablePeripheralABP2(t_RCC_APB2Peripherals enuPeripheral);
+
+/**
+ * @brief This function enables the clock of a peripheral connected to the APB1 bus
+ * @details This function enables the clock of a peripheral connected to the APB1 bus
+ * @param[in] enuPeripheral Peripheral to be enabled
+ */
+void RCC_vEnablePeripheralABP1(t_RCC_APB1Peripherals enuPeripheral);
+
+/**
+ * @brief This function disables the clock of a peripheral connected to the APB1 bus
+ * @details This function disables the clock of a peripheral connected to the APB1 bus
+ * @param[in] enuPeripheral Peripheral to be disabled
+ */
+void RCC_vDisablePeripheralABP1(t_RCC_APB1Peripherals enuPeripheral);
 
 /** @} */
 /** @} */
