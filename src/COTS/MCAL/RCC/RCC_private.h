@@ -12,6 +12,7 @@
 
 #include "../../LIB/LSTD_HW_REGS.h"
 #include "../../LIB/LSTD_TYPES.h"
+#include "../../LIB/LSTD_VALUES.h"
 
 /**
  * @addtogroup mcal
@@ -158,7 +159,7 @@ typedef struct
 	 * @brief LSB of PLL division factor PREDIV1
 	 * @details Select the LSB of the division factor for PLL input clock
 	 */
-	t_u32 PLLXTPRE: 1;
+	t_u32 PLLXTPRE : 1;
 	/**
 	 * @brief PLL multiplication factor
 	 * @details Configure the PLL multiplication factor
@@ -991,6 +992,15 @@ typedef struct
  * @brief RCC Register Map
  */
 #define RCC REGISTER(t_RCC_RegisterMap, RCC_BASE_ADDRESS)
+
+/**
+ * @def SETREGISTERBITSTATUS
+ * @brief Set register bit status (1 or 0)
+ * @param reg Register name
+ * @param bit Bit name
+ * @param bStatus Bit status value (TRUE or FALSE)
+ */
+#define SETREGISTERBITSTATUS(reg, bit, bStatus) (RCC.reg.bit = (bStatus == TRUE) ? (t_u8)1 : (t_u8)0)
 
 /** @} */
 /** @} */
