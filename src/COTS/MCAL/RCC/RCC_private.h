@@ -618,37 +618,27 @@ typedef struct
 	 * @brief Reserved bit(s)
 	 * @attention This field is reserved and must be kept at reset value.
 	 */
-	t_u32 : 5;
+	t_u32 : 1;
 	/**
-	 * @brief OTG FS clock enable
-	 * @details This field enables the OTG FS clock
+	 * @brief FSMC clock enable
+	 * @details This field enables the FSMC clock
 	 */
-	t_u32 OTGFSEN : 1;
+	t_u32 FSMCEN : 1;
 	/**
 	 * @brief Reserved bit(s)
 	 * @attention This field is reserved and must be kept at reset value.
 	 */
 	t_u32 : 1;
 	/**
-	 * @brief Ethernet MAC clock enable
-	 * @details This field enables the Ethernet MAC clock
+	 * @brief SDIO clock enable
+	 * @details This field enables the SDIO clock
 	 */
-	t_u32 ETHMACEN : 1;
-	/**
-	 * @brief Ethernet MAC TX clock enable
-	 * @details This field enables the Ethernet MAC TX clock
-	 */
-	t_u32 ETHMACTXEN : 1;
-	/**
-	 * @brief Ethernet MAC RX clock enable
-	 * @details This field enables the Ethernet MAC RX clock
-	 */
-	t_u32 ETHMACRXEN : 1;
+	t_u32 SDIOEN : 1;
 	/**
 	 * @brief Reserved bit(s)
 	 * @attention This field is reserved and must be kept at reset value.
 	 */
-	t_u32 : 15;
+	t_u32 : 21;
 } t_RCC_AHBENR;
 
 /**
@@ -693,10 +683,15 @@ typedef struct
 	 */
 	t_u32 IOPEEN : 1;
 	/**
-	 * @brief Reserved bit(s)
-	 * @attention This field is reserved and must be kept at reset value.
+	 * @brief I/O port F clock enable
+	 * @details This field enables the I/O port F clock
 	 */
-	t_u32 : 2;
+	t_u32 IOPFEN : 1;
+	/**
+	 * @brief I/O port G clock enable
+	 * @details This field enables the I/O port G clock
+	 */
+	t_u32 IOPGEN : 1;
 	/**
 	 * @brief ADC 1 interface clock enable
 	 * @details This field enables the ADC 1 interface clock
@@ -718,20 +713,45 @@ typedef struct
 	 */
 	t_u32 SPI1EN : 1;
 	/**
-	 * @brief Reserved bit(s)
-	 * @attention This field is reserved and must be kept at reset value.
+	 * @brief TIM8 Timer clock enable
+	 * @details This field enables the TIM8 Timer clock
 	 */
-	t_u32 : 1;
+	t_u32 TIM8EN : 1;
 	/**
 	 * @brief USART1 clock enable
 	 * @details This field enables the USART1 clock
 	 */
 	t_u32 USART1EN : 1;
 	/**
+	 * @brief ADC 3 interface clock enable
+	 * @details This field enables the ADC 3 interface clock
+	 */
+	t_u32 ADC3EN : 1;
+	/**
 	 * @brief Reserved bit(s)
 	 * @attention This field is reserved and must be kept at reset value.
 	 */
-	t_u32 : 17;
+	t_u32 : 3;
+	/**
+	 * @brief TIM9 Timer clock enable
+	 * @details This field enables the TIM9 Timer clock
+	 */
+	t_u32 TIM9EN : 1;
+	/**
+	 * @brief TIM10 Timer clock enable
+	 * @details This field enables the TIM10 Timer clock
+	 */
+	t_u32 TIM10EN : 1;
+	/**
+	 * @brief TIM11 Timer clock enable
+	 * @details This field enables the TIM11 Timer clock
+	 */
+	t_u32 TIM11EN : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 10;
 } t_RCC_APB2ENR;
 
 /**
@@ -771,10 +791,25 @@ typedef struct
 	 */
 	t_u32 TIM7EN : 1;
 	/**
+	 * @brief Timer 12 clock enable
+	 * @details This field enables the Timer 12 clock
+	 */
+	t_u32 TIM12EN : 1;
+	/**
+	 * @brief Timer 13 clock enable
+	 * @details This field enables the Timer 13 clock
+	 */
+	t_u32 TIM13EN : 1;
+	/**
+	 * @brief Timer 14 clock enable
+	 * @details This field enables the Timer 14 clock
+	 */
+	t_u32 TIM14EN : 1;
+	/**
 	 * @brief Reserved bit(s)
 	 * @attention This field is reserved and must be kept at reset value.
 	 */
-	t_u32 : 5;
+	t_u32 : 2;
 	/**
 	 * @brief Window watchdog clock enable
 	 * @details This field enables the Window watchdog clock
@@ -831,20 +866,25 @@ typedef struct
 	 */
 	t_u32 I2C2EN : 1;
 	/**
+	 * @brief USB clock enable
+	 * @details This field enables the USB clock
+	 */
+	t_u32 USBEN : 1;
+	/**
 	 * @brief Reserved bit(s)
 	 * @attention This field is reserved and must be kept at reset value.
 	 */
-	t_u32 : 2;
+	t_u32 : 1;
 	/**
-	 * @brief CAN 1 clock enable
-	 * @details This field enables the CAN 1 clock
+	 * @brief CAN clock enable
+	 * @details This field enables the CAN clock
 	 */
-	t_u32 CAN1EN : 1;
+	t_u32 CANEN : 1;
 	/**
-	 * @brief CAN 2 clock enable
-	 * @details This field enables the CAN 2 clock
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
 	 */
-	t_u32 CAN2EN : 1;
+	t_u32 : 1;
 	/**
 	 * @brief Backup interface clock enable
 	 * @details This field enables the Backup interface clock
