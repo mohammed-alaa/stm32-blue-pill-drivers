@@ -195,6 +195,31 @@ enum RCC_PLLSource
 	RCC_PLLSource_HSE,
 };
 
+/**
+ * @enum RCC_MCO
+ * @brief This enum contains the MCO sources
+ * @details This enum contains the MCO sources
+ */
+enum RCC_MCO
+{
+	/**
+	 * @brief System clock selected as MCO
+	 */
+	RCC_MCO_SystemClock = 0b0100,
+	/**
+	 * @brief HSI clock selected as MCO
+	 */
+	RCC_MCO_HSI,
+	/**
+	 * @brief HSE clock selected as MCO
+	 */
+	RCC_MCO_HSE,
+	/**
+	 * @brief PLL clock divided by 2 selected as MCO
+	 */
+	RCC_MCO_PLL_DividedBy2,
+};
+
 /** @} */
 /** @} */
 
