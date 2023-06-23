@@ -28,7 +28,7 @@
 
 /**
  * @def STATIC
- * @brief Declare a standard static variable
+ * @brief Declare a standard static variable/function
  */
 #define STATIC static
 
