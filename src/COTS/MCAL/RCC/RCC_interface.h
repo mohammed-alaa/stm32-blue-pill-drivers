@@ -454,6 +454,33 @@ enum RCC_AHBPeripherals
 };
 
 /** @} */
+/**
+ * @defgroup rcc_exported_functions RCC exported functions
+ * @brief RCC exported functions
+ * @{
+ */
+
+/**
+ * @brief This function initializes the RCC peripheral
+ * @details This function initializes the RCC peripheral
+ */
+void RCC_vInit(void);
+
+/**
+ * @brief This function enables the clock of a peripheral connected to the APB2 bus
+ * @details This function enables the clock of a peripheral connected to the APB2 bus
+ * @param[in] enuPeripheral Peripheral to be enabled
+ */
+void RCC_vEnablePeripheralABP2(t_RCC_APB2Peripherals enuPeripheral);
+
+/**
+ * @brief This function disables the clock of a peripheral connected to the APB2 bus
+ * @details This function disables the clock of a peripheral connected to the APB2 bus
+ * @param[in] enuPeripheral Peripheral to be disabled
+ */
+void RCC_vDisablePeripheralABP2(t_RCC_APB2Peripherals enuPeripheral);
+
+/** @} */
 /** @} */
 /** @} */
 
