@@ -1032,87 +1032,6 @@ typedef struct
 } t_RCC_CSR;
 
 /**
- * @struct t_RCC_AHBRSTR
- * @brief RCC AHB peripheral reset register
- */
-typedef struct
-{
-	/**
-	 * @brief Reserved bit(s)
-	 * @attention This field is reserved and must be kept at reset value.
-	 */
-	t_u32 : 12;
-	/**
-	 * @brief OTG FS module reset
-	 * @details This field resets the OTG FS module.
-	 */
-	t_u32 OTGFSRST : 1;
-	/**
-	 * @brief Reserved bit(s)
-	 * @attention This field is reserved and must be kept at reset value.
-	 */
-	t_u32 : 1;
-	/**
-	 * @brief Ethernet MAC reset
-	 * @details This field resets the Ethernet MAC.
-	 */
-	t_u32 ETHMACRST : 1;
-	/**
-	 * @brief Reserved bit(s)
-	 * @attention This field is reserved and must be kept at reset value.
-	 */
-	t_u32 : 17;
-} t_RCC_AHBRSTR;
-
-/**
- * @struct t_RCC_CFGR2
- * @brief RCC Clock configuration register 2
- */
-typedef struct
-{
-	/**
-	 * @brief PREDIV1 division factor
-	 * @details This field defines the division factor for the main PLL and PLLI2S input clock.
-	 */
-	t_u32 PREDIV1 : 4;
-	/**
-	 * @brief PREDIV2 division factor
-	 * @details This field defines the division factor for the main PLL and PLLI2S input clock.
-	 */
-	t_u32 PREDIV2 : 4;
-	/**
-	 * @brief PLL2 multiplication factor
-	 * @details This field defines the multiplication factor for PLL2 VCO input clock.
-	 */
-	t_u32 PLL2MUL : 4;
-	/**
-	 * @brief PLL3 multiplication factor
-	 * @details This field defines the multiplication factor for PLL3 VCO input clock.
-	 */
-	t_u32 PLL3MUL : 4;
-	/**
-	 * @brief PREDIV1SRC PREDIV1 entry clock source
-	 * @details This field defines the PREDIV1 clock source.
-	 */
-	t_u32 PREDIV1SRC : 1;
-	/**
-	 * @brief I2S2 clock source
-	 * @details This field defines the I2S2 clock source.
-	 */
-	t_u32 I2S2SRC : 1;
-	/**
-	 * @brief I2S3 clock source
-	 * @details This field defines the I2S3 clock source.
-	 */
-	t_u32 I2S3SRC : 1;
-	/**
-	 * @brief Reserved bit(s)
-	 * @attention This field is reserved and must be kept at reset value.
-	 */
-	t_u32 : 13;
-} t_RCC_CFGR2;
-
-/**
  * @struct t_RCC_RegisterMap
  * @brief RCC Register Map
  */
@@ -1158,14 +1077,6 @@ typedef struct
 	 * @brief RCC Control/status register
 	 */
 	t_RCC_CSR CSR;
-	/**
-	 * @brief RCC AHB peripheral reset register
-	 */
-	t_RCC_AHBRSTR AHBRSTR;
-	/**
-	 * @brief RCC Clock configuration register 2
-	 */
-	t_RCC_CFGR2 CFGR2;
 } t_RCC_RegisterMap;
 
 /** @} */
