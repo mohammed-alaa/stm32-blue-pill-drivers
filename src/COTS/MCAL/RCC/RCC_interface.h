@@ -16,8 +16,13 @@
  */
 
 /**
- * @defgroup rcc_module RCC Module
- * @brief RCC Module
+ * @addtogroup rcc_module
+ * @{
+ */
+
+/**
+ * @defgroup rcc_interface_options RCC Interface Options
+ * @brief This group contains the options of the RCC module interface
  * @{
  */
 
@@ -132,7 +137,7 @@ enum RCC_AHBPrescaler
 	/**
 	 * @brief AHB bus divided by 512
 	 */
-	RCC_AHBPrescaler_DividedBy512,
+	RCC_AHBPrescaler_DividedBy512
 };
 
 /**
@@ -161,7 +166,7 @@ enum RCC_APBPrescaler
 	/**
 	 * @brief APB1 bus divided by 16
 	 */
-	RCC_APBPrescaler_DividedBy16,
+	RCC_APBPrescaler_DividedBy16
 };
 
 /**
@@ -186,7 +191,7 @@ enum RCC_ADCPrescaler
 	/**
 	 * @brief ADC bus divided by 8
 	 */
-	RCC_ADCPrescaler_DividedBy8,
+	RCC_ADCPrescaler_DividedBy8
 };
 
 /**
@@ -207,7 +212,7 @@ enum RCC_SystemClock
 	/**
 	 * @brief PLL clock selected as system clock
 	 */
-	RCC_SystemClock_PLL,
+	RCC_SystemClock_PLL
 };
 
 /**
@@ -224,11 +229,11 @@ enum RCC_PLLSource
 	/**
 	 * @brief HSE clock selected as PLL clock
 	 */
-	RCC_PLLSource_HSE,
+	RCC_PLLSource_HSE
 };
 
 /**
- * @enum RCC_MCO
+ * @enum RCC_MCOSources
  * @brief This enum contains the MCO sources
  * @details This enum contains the MCO sources
  */
@@ -253,7 +258,7 @@ enum RCC_MCOSources
 	/**
 	 * @brief PLL clock divided by 2 selected as MCO
 	 */
-	RCC_MCOSources_PLL_DividedBy2,
+	RCC_MCOSources_PLL_DividedBy2
 };
 
 /**
@@ -270,15 +275,15 @@ enum RCC_USBPrescaler
 	/**
 	 * @brief USB clock divided by 1
 	 */
-	RCC_USBPrescaler_1,
+	RCC_USBPrescaler_1
 };
 
 /**
- * @enum RCC_APB2Peripherals
+ * @typedef t_RCC_APB2Peripherals
  * @brief This enum contains the APB2 peripherals that are connected to the APB2 bus
  * @details This enum contains the APB2 peripherals that are connected to the APB2 bus
  */
-enum RCC_APB2Peripherals
+typedef enum
 {
 	/**
 	 * @brief Alternate function I/O clock
@@ -336,7 +341,7 @@ enum RCC_APB2Peripherals
 	 * @brief ADC 3 interface clock
 	 */
 	RCC_APB2Peripherals_ADC3
-};
+} t_RCC_APB2Peripherals;
 
 /**
  * @enum RCC_APB1Peripherals
@@ -448,6 +453,7 @@ enum RCC_AHBPeripherals
 	RCC_AHBPeripherals_CRC = 5
 };
 
+/** @} */
 /** @} */
 /** @} */
 
