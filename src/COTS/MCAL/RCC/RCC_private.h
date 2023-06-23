@@ -104,32 +104,10 @@ typedef struct
 	 */
 	t_u32 PLLRDY : 1;
 	/**
-	 * @brief PLL2 enable
-	 * @details Enable or disable PLL2
-	 */
-	t_u32 PLL2ON : 1;
-	/**
-	 * @brief PLL2 clock ready flag
-	 * @details This bit is set by hardware to indicate that the PLL2 clock is locked
-	 * @warning This field is read-only
-	 */
-	t_u32 PLL2RDY : 1;
-	/**
-	 * @brief PLL3 enable
-	 * @details Enable or disable PLL3
-	 */
-	t_u32 PLL3ON : 1;
-	/**
-	 * @brief PLL3 clock ready flag
-	 * @details This bit is set by hardware to indicate that the PLL3 clock is locked
-	 * @warning This field is read-only
-	 */
-	t_u32 PLL3RDY : 1;
-	/**
 	 * @brief Reserved bit(s)
 	 * @attention This field is reserved and must be kept at reset value.
 	 */
-	t_u32 : 2;
+	t_u32 : 6;
 } t_RCC_CR;
 
 /**
@@ -189,10 +167,10 @@ typedef struct
 	 */
 	t_u32 PLLMUL : 4;
 	/**
-	 * @brief USB OTG FS prescaler
-	 * @details Configure the USB OTG FS clock (OTGFSCLK) prescaler
+	 * @brief USB prescaler
+	 * @details Configure the USB clock (USBCLK) prescaler
 	 */
-	t_u32 OTGFSPRE : 1;
+	t_u32 USBPRE : 1;
 	/**
 	 * @brief Reserved bit(s)
 	 * @attention This field is reserved and must be kept at reset value.
@@ -202,12 +180,12 @@ typedef struct
 	 * @brief Microcontroller clock output
 	 * @details Configure the MCO clock
 	 */
-	t_u32 MCO : 4;
+	t_u32 MCO : 3;
 	/**
 	 * @brief Reserved bit(s)
 	 * @attention This field is reserved and must be kept at reset value.
 	 */
-	t_u32 : 4;
+	t_u32 : 5;
 } t_RCC_CFGR;
 
 /**
