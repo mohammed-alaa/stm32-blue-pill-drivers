@@ -329,29 +329,13 @@ enum RCC_APB2Peripherals
 	 */
 	RCC_APB2Peripherals_SPI1,
 	/**
-	 * @brief Timer 8 (TIM8) clock
-	 */
-	RCC_APB2Peripherals_TIM8,
-	/**
 	 * @brief USART1 clock
 	 */
-	RCC_APB2Peripherals_USART1,
+	RCC_APB2Peripherals_USART1 = 14,
 	/**
 	 * @brief ADC 3 interface clock
 	 */
-	RCC_APB2Peripherals_ADC3,
-	/**
-	 * @brief Timer 9 (TIM9) clock
-	 */
-	RCC_APB2Peripherals_TIM9 = 19,
-	/**
-	 * @brief Timer 10 (TIM10) clock
-	 */
-	RCC_APB2Peripherals_TIM10,
-	/**
-	 * @brief Timer 11 (TIM11) clock
-	 */
-	RCC_APB2Peripherals_TIM11,
+	RCC_APB2Peripherals_ADC3
 };
 
 /**
@@ -385,18 +369,6 @@ enum RCC_APB1Peripherals
 	 * @brief Timer 7 (TIM7) clock
 	 */
 	RCC_APB1Peripherals_TIM7,
-	/**
-	 * @brief Timer 12 (TIM12) clock
-	 */
-	RCC_APB1Peripherals_TIM12,
-	/**
-	 * @brief Timer 13 (TIM13) clock
-	 */
-	RCC_APB1Peripherals_TIM13,
-	/**
-	 * @brief Timer 14 (TIM14) clock
-	 */
-	RCC_APB1Peripherals_TIM14,
 	/**
 	 * @brief Window watchdog (WWDG) clock
 	 */
@@ -471,25 +443,9 @@ enum RCC_AHBPeripherals
 	 */
 	RCC_AHBPeripherals_DMA2,
 	/**
-	 * @brief SRAM interface clock
-	 */
-	RCC_AHBPeripherals_SRAM,
-	/**
-	 * @brief FLITF clock
-	 */
-	RCC_AHBPeripherals_FLITF = 4,
-	/**
 	 * @brief CRC clock
 	 */
-	RCC_AHBPeripherals_CRC = 6,
-	/**
-	 * @brief FSMC clock
-	 */
-	RCC_AHBPeripherals_FSMC = 8,
-	/**
-	 * @brief SDIO clock
-	 */
-	RCC_AHBPeripherals_SDIO = 10,
+	RCC_AHBPeripherals_CRC = 5
 };
 
 /** @} */

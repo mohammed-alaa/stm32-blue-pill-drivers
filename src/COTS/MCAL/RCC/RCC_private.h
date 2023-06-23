@@ -94,7 +94,6 @@ typedef struct
 	/**
 	 * @brief PLL enable
 	 * @details Enable or disable the PLL
-	 * @note Software must disable the USB OTG FS clock before clearing this bit.
 	 */
 	t_u32 PLLON : 1;
 	/**
@@ -378,10 +377,10 @@ typedef struct
 	 */
 	t_u32 SPI1RST : 1;
 	/**
-	 * @brief TIM8 timer reset
-	 * @details This field resets the TIM8 configuration registers
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
 	 */
-	t_u32 TIM8RST : 1;
+	t_u32 : 1;
 	/**
 	 * @brief USART1 reset
 	 * @details This field resets the USART1 configuration registers
@@ -396,27 +395,7 @@ typedef struct
 	 * @brief Reserved bit(s)
 	 * @attention This field is reserved and must be kept at reset value.
 	 */
-	t_u32 : 3;
-	/**
-	 * @brief TIM9 timer reset
-	 * @details This field resets the TIM9 configuration registers
-	 */
-	t_u32 TIM9RST : 1;
-	/**
-	 * @brief TIM10 timer reset
-	 * @details This field resets the TIM10 configuration registers
-	 */
-	t_u32 TIM10RST : 1;
-	/**
-	 * @brief TIM11 timer reset
-	 * @details This field resets the TIM11 configuration registers
-	 */
-	t_u32 TIM11RST : 1;
-	/**
-	 * @brief Reserved bit(s)
-	 * @attention This field is reserved and must be kept at reset value.
-	 */
-	t_u32 : 10;
+	t_u32 : 16;
 } t_RCC_APB2RSTR;
 
 /**
@@ -456,25 +435,10 @@ typedef struct
 	 */
 	t_u32 TIM7RST : 1;
 	/**
-	 * @brief TIM12 timer reset
-	 * @details This field resets the TIM12 configuration registers
-	 */
-	t_u32 TIM12RST : 1;
-	/**
-	 * @brief TIM13 timer reset
-	 * @details This field resets the TIM13 configuration registers
-	 */
-	t_u32 TIM13RST : 1;
-	/**
-	 * @brief TIM14 timer reset
-	 * @details This field resets the TIM14 configuration registers
-	 */
-	t_u32 TIM14RST : 1;
-	/**
 	 * @brief Reserved bit(s)
 	 * @attention This field is reserved and must be kept at reset value.
 	 */
-	t_u32 : 2;
+	t_u32 : 5;
 	/**
 	 * @brief Window watchdog reset
 	 * @details This field resets the window watchdog configuration registers
@@ -589,25 +553,10 @@ typedef struct
 	 */
 	t_u32 DMA2EN : 1;
 	/**
-	 * @brief SRAM interface clock enable
-	 * @details This field enables the SRAM interface clock
-	 */
-	t_u32 SRAMEN : 1;
-	/**
 	 * @brief Reserved bit(s)
 	 * @attention This field is reserved and must be kept at reset value.
 	 */
-	t_u32 : 1;
-	/**
-	 * @brief FLITF clock enable
-	 * @details This field enables the FLITF clock
-	 */
-	t_u32 FLITFEN : 1;
-	/**
-	 * @brief Reserved bit(s)
-	 * @attention This field is reserved and must be kept at reset value.
-	 */
-	t_u32 : 1;
+	t_u32 : 4;
 	/**
 	 * @brief CRC clock enable
 	 * @details This field enables the CRC clock
@@ -617,27 +566,7 @@ typedef struct
 	 * @brief Reserved bit(s)
 	 * @attention This field is reserved and must be kept at reset value.
 	 */
-	t_u32 : 1;
-	/**
-	 * @brief FSMC clock enable
-	 * @details This field enables the FSMC clock
-	 */
-	t_u32 FSMCEN : 1;
-	/**
-	 * @brief Reserved bit(s)
-	 * @attention This field is reserved and must be kept at reset value.
-	 */
-	t_u32 : 1;
-	/**
-	 * @brief SDIO clock enable
-	 * @details This field enables the SDIO clock
-	 */
-	t_u32 SDIOEN : 1;
-	/**
-	 * @brief Reserved bit(s)
-	 * @attention This field is reserved and must be kept at reset value.
-	 */
-	t_u32 : 21;
+	t_u32 : 25;
 } t_RCC_AHBENR;
 
 /**
@@ -712,10 +641,10 @@ typedef struct
 	 */
 	t_u32 SPI1EN : 1;
 	/**
-	 * @brief TIM8 Timer clock enable
-	 * @details This field enables the TIM8 Timer clock
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
 	 */
-	t_u32 TIM8EN : 1;
+	t_u32 : 1;
 	/**
 	 * @brief USART1 clock enable
 	 * @details This field enables the USART1 clock
@@ -730,27 +659,7 @@ typedef struct
 	 * @brief Reserved bit(s)
 	 * @attention This field is reserved and must be kept at reset value.
 	 */
-	t_u32 : 3;
-	/**
-	 * @brief TIM9 Timer clock enable
-	 * @details This field enables the TIM9 Timer clock
-	 */
-	t_u32 TIM9EN : 1;
-	/**
-	 * @brief TIM10 Timer clock enable
-	 * @details This field enables the TIM10 Timer clock
-	 */
-	t_u32 TIM10EN : 1;
-	/**
-	 * @brief TIM11 Timer clock enable
-	 * @details This field enables the TIM11 Timer clock
-	 */
-	t_u32 TIM11EN : 1;
-	/**
-	 * @brief Reserved bit(s)
-	 * @attention This field is reserved and must be kept at reset value.
-	 */
-	t_u32 : 10;
+	t_u32 : 16;
 } t_RCC_APB2ENR;
 
 /**
@@ -790,25 +699,10 @@ typedef struct
 	 */
 	t_u32 TIM7EN : 1;
 	/**
-	 * @brief Timer 12 clock enable
-	 * @details This field enables the Timer 12 clock
-	 */
-	t_u32 TIM12EN : 1;
-	/**
-	 * @brief Timer 13 clock enable
-	 * @details This field enables the Timer 13 clock
-	 */
-	t_u32 TIM13EN : 1;
-	/**
-	 * @brief Timer 14 clock enable
-	 * @details This field enables the Timer 14 clock
-	 */
-	t_u32 TIM14EN : 1;
-	/**
 	 * @brief Reserved bit(s)
 	 * @attention This field is reserved and must be kept at reset value.
 	 */
-	t_u32 : 2;
+	t_u32 : 5;
 	/**
 	 * @brief Window watchdog clock enable
 	 * @details This field enables the Window watchdog clock
