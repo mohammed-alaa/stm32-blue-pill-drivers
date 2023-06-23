@@ -29,9 +29,17 @@
 enum RCC_PLLMulFactors
 {
 	/**
+	 * @brief Multiply the PLL1 input clock by 2
+	 */
+	RCC_PLLMulFactors_2 = 0,
+	/**
+	 * @brief Multiply the PLL1 input clock by 3
+	 */
+	RCC_PLLMulFactors_3,
+	/**
 	 * @brief Multiply the PLL1 input clock by 4
 	 */
-	RCC_PLLMulFactors_4 = 0b0010,
+	RCC_PLLMulFactors_4,
 	/**
 	 * @brief Multiply the PLL1 input clock by 5
 	 */
@@ -53,9 +61,33 @@ enum RCC_PLLMulFactors
 	 */
 	RCC_PLLMulFactors_9,
 	/**
-	 * @brief Multiply the PLL1 input clock by 6.5
+	 * @brief Multiply the PLL1 input clock by 10
 	 */
-	RCC_PLLMulFactors_6_5 = 0b1101,
+	RCC_PLLMulFactors_10,
+	/**
+	 * @brief Multiply the PLL1 input clock by 11
+	 */
+	RCC_PLLMulFactors_11,
+	/**
+	 * @brief Multiply the PLL1 input clock by 12
+	 */
+	RCC_PLLMulFactors_12,
+	/**
+	 * @brief Multiply the PLL1 input clock by 13
+	 */
+	RCC_PLLMulFactors_13,
+	/**
+	 * @brief Multiply the PLL1 input clock by 14
+	 */
+	RCC_PLLMulFactors_14,
+	/**
+	 * @brief Multiply the PLL1 input clock by 15
+	 */
+	RCC_PLLMulFactors_15,
+	/**
+	 * @brief Multiply the PLL1 input clock by 16
+	 */
+	RCC_PLLMulFactors_16
 };
 
 /**
@@ -203,9 +235,13 @@ enum RCC_PLLSource
 enum RCC_MCO
 {
 	/**
+	 * @brief No clock selected as MCO
+	 */
+	RCC_MCO_NoClock = 0,
+	/**
 	 * @brief System clock selected as MCO
 	 */
-	RCC_MCO_SystemClock = 0b0100,
+	RCC_MCO_SystemClock = 0b100,
 	/**
 	 * @brief HSI clock selected as MCO
 	 */
@@ -221,7 +257,7 @@ enum RCC_MCO
 };
 
 /**
- * @enum RCC_USBPrescalerFactors
+ * @enum RCC_USBPrescaler
  * @brief This enum contains the USB prescaler factors
  * @details This enum contains the USB prescaler factors
  */
@@ -230,11 +266,11 @@ enum RCC_USBPrescaler
 	/**
 	 * @brief USB clock divided by 1.5
 	 */
-	RCC_USBPrescalerFactors_1_5 = 0,
+	RCC_USBPrescaler_1_5 = 0,
 	/**
 	 * @brief USB clock divided by 1
 	 */
-	RCC_USBPrescalerFactors_1,
+	RCC_USBPrescaler_1,
 };
 
 /**
@@ -251,23 +287,23 @@ enum RCC_APB2Peripherals
 	/**
 	 * @brief I/O port A clock
 	 */
-	RCC_APB2Peripherals_IOPA = 2,
+	RCC_APB2Peripherals_PORTA = 2,
 	/**
 	 * @brief I/O port B clock
 	 */
-	RCC_APB2Peripherals_IOPB,
+	RCC_APB2Peripherals_PORTB,
 	/**
 	 * @brief I/O port C clock
 	 */
-	RCC_APB2Peripherals_IOPC,
+	RCC_APB2Peripherals_PORTC,
 	/**
 	 * @brief I/O port D clock
 	 */
-	RCC_APB2Peripherals_IOPD,
+	RCC_APB2Peripherals_PORTD,
 	/**
 	 * @brief I/O port E clock
 	 */
-	RCC_APB2Peripherals_IOPE,
+	RCC_APB2Peripherals_PORTE,
 	/**
 	 * @brief ADC 1 interface clock
 	 */
