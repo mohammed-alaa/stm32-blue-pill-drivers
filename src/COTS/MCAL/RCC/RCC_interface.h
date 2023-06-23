@@ -237,6 +237,59 @@ enum RCC_USBPrescaler
 	RCC_USBPrescalerFactors_1,
 };
 
+/**
+ * @enum RCC_APB2Peripherals
+ * @brief This enum contains the APB2 peripherals that are connected to the APB2 bus
+ * @details This enum contains the APB2 peripherals that are connected to the APB2 bus
+ */
+enum RCC_APB2Peripherals
+{
+	/**
+	 * @brief Alternate function I/O clock
+	 */
+	RCC_APB2Peripherals_AFIO = 0,
+	/**
+	 * @brief I/O port A clock
+	 */
+	RCC_APB2Peripherals_IOPA = 2,
+	/**
+	 * @brief I/O port B clock
+	 */
+	RCC_APB2Peripherals_IOPB,
+	/**
+	 * @brief I/O port C clock
+	 */
+	RCC_APB2Peripherals_IOPC,
+	/**
+	 * @brief I/O port D clock
+	 */
+	RCC_APB2Peripherals_IOPD,
+	/**
+	 * @brief I/O port E clock
+	 */
+	RCC_APB2Peripherals_IOPE,
+	/**
+	 * @brief ADC 1 interface clock
+	 */
+	RCC_APB2Peripherals_ADC1 = 9,
+	/**
+	 * @brief ADC 2 interface clock
+	 */
+	RCC_APB2Peripherals_ADC2,
+	/**
+	 * @brief Timer 1 (TIM1) clock
+	 */
+	RCC_APB2Peripherals_TIM1,
+	/**
+	 * @brief SPI 1 clock
+	 */
+	RCC_APB2Peripherals_SPI1,
+	/**
+	 * @brief USART1 clock
+	 */
+	RCC_APB2Peripherals_USART1 = 14
+};
+
 /** @} */
 /** @} */
 
