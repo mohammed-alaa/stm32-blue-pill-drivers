@@ -232,28 +232,28 @@ enum RCC_PLLSource
  * @brief This enum contains the MCO sources
  * @details This enum contains the MCO sources
  */
-enum RCC_MCO
+enum RCC_MCOSources
 {
 	/**
 	 * @brief No clock selected as MCO
 	 */
-	RCC_MCO_NoClock = 0,
+	RCC_MCOSources_NoClock = 0,
 	/**
 	 * @brief System clock selected as MCO
 	 */
-	RCC_MCO_SystemClock = 0b100,
+	RCC_MCOSources_SystemClock = 0b100,
 	/**
 	 * @brief HSI clock selected as MCO
 	 */
-	RCC_MCO_HSI,
+	RCC_MCOSources_HSI,
 	/**
 	 * @brief HSE clock selected as MCO
 	 */
-	RCC_MCO_HSE,
+	RCC_MCOSources_HSE,
 	/**
 	 * @brief PLL clock divided by 2 selected as MCO
 	 */
-	RCC_MCO_PLL_DividedBy2,
+	RCC_MCOSources_PLL_DividedBy2,
 };
 
 /**
