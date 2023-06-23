@@ -225,17 +225,10 @@ typedef struct
 	 */
 	t_u32 PLLRDYF : 1;
 	/**
-	 * @brief PLL2 ready interrupt flag
-	 * @details This field indicates whether the PLL2 oscillator is stable or not
-	 * @warning This field is read-only
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
 	 */
-	t_u32 PLL2RDYF : 1;
-	/**
-	 * @brief PLL3 ready interrupt flag
-	 * @details This field indicates whether the PLL3 oscillator is stable or not
-	 * @warning This field is read-only
-	 */
-	t_u32 PLL3RDYF : 1;
+	t_u32 : 2;
 	/**
 	 * @brief Clock security system interrupt flag
 	 * @details This field indicates whether a failure is detected on the external 3.3 V oscillator
@@ -268,20 +261,10 @@ typedef struct
 	 */
 	t_u32 PLLRDYIE : 1;
 	/**
-	 * @brief PLL2 ready interrupt enable
-	 * @details This field enables the PLL2 ready interrupt
-	 */
-	t_u32 PLL2RDYIE : 1;
-	/**
-	 * @brief PLL3 ready interrupt enable
-	 * @details This field enables the PLL3 ready interrupt
-	 */
-	t_u32 PLL3RDYIE : 1;
-	/**
 	 * @brief Reserved bit(s)
 	 * @attention This field is reserved and must be kept at reset value.
 	 */
-	t_u32 : 1;
+	t_u32 : 3;
 	/**
 	 * @brief LSI ready interrupt clear
 	 * @details This field clears the LSI ready interrupt
@@ -308,15 +291,10 @@ typedef struct
 	 */
 	t_u32 PLLRDYC : 1;
 	/**
-	 * @brief PLL2 ready interrupt clear
-	 * @details This field clears the PLL2 ready interrupt
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
 	 */
-	t_u32 PLL2RDYC : 1;
-	/**
-	 * @brief PLL3 ready interrupt clear
-	 * @details This field clears the PLL3 ready interrupt
-	 */
-	t_u32 PLL3RDYC : 1;
+	t_u32 : 2;
 	/**
 	 * @brief Clock security system interrupt clear
 	 * @details This field clears the clock security system interrupt
