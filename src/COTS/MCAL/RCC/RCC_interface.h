@@ -177,6 +177,24 @@ enum RCC_SystemClock
 	 */
 	RCC_SystemClock_PLL,
 };
+
+/**
+ * @enum RCC_PLLSource
+ * @brief This enum contains the PLL clock sources
+ * @details This enum contains the PLL clock sources
+ */
+enum RCC_PLLSource
+{
+	/**
+	 * @brief HSI clock divided by 2 selected as PLL clock
+	 */
+	RCC_PLLSource_HSI_DividedBy2 = 0,
+	/**
+	 * @brief HSE clock selected as PLL clock
+	 */
+	RCC_PLLSource_HSE,
+};
+
 /** @} */
 /** @} */
 
