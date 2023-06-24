@@ -28,6 +28,17 @@ STATIC void RCC_vInitHSEClock(void)
 	/* Wait until HSE is ready */
 	while (RCC.CR.HSERDY == FALSE)
 		;
+
+	if (RCC_ENABLE_CSS == TRUE)
+	{
+		/* Enable CSS */
+		RCC.CR.CSSON = TRUE;
+	}
+	else
+	{
+		/* Disable CSS */
+		RCC.CR.CSSON = FALSE;
+	}
 }
 
 /**
@@ -101,8 +112,8 @@ STATIC void RCC_vInitMCO(void)
 /**
  * @brief This function initializes a certain peripheral clock on APB2 bus
  * @details This function initializes a certain peripheral clock on APB2 bus
- * @param enuPeripheral Peripheral to enable/disable its clock
- * @param bStatus Enable/Disable peripheral clock
+ * @param[in] enuPeripheral Peripheral to enable/disable its clock
+ * @param[in] bStatus Enable/Disable peripheral clock
  * @see RCC_APB2Peripherals
  */
 STATIC void RCC_vSetAPB2PeripheralClockStatus(t_RCC_APB2Peripherals enuPeripheral, t_bool bStatus)
@@ -110,46 +121,46 @@ STATIC void RCC_vSetAPB2PeripheralClockStatus(t_RCC_APB2Peripherals enuPeriphera
 	switch (enuPeripheral)
 	{
 	case RCC_APB2Peripherals_AFIO:
-		SETREGISTERBITSTATUS(APB2ENR, AFIOEN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB2ENR, AFIOEN, bStatus);
 		break;
 	case RCC_APB2Peripherals_PORTA:
-		SETREGISTERBITSTATUS(APB2ENR, IOPAEN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB2ENR, IOPAEN, bStatus);
 		break;
 	case RCC_APB2Peripherals_PORTB:
-		SETREGISTERBITSTATUS(APB2ENR, IOPBEN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB2ENR, IOPBEN, bStatus);
 		break;
 	case RCC_APB2Peripherals_PORTC:
-		SETREGISTERBITSTATUS(APB2ENR, IOPCEN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB2ENR, IOPCEN, bStatus);
 		break;
 	case RCC_APB2Peripherals_PORTD:
-		SETREGISTERBITSTATUS(APB2ENR, IOPDEN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB2ENR, IOPDEN, bStatus);
 		break;
 	case RCC_APB2Peripherals_PORTE:
-		SETREGISTERBITSTATUS(APB2ENR, IOPEEN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB2ENR, IOPEEN, bStatus);
 		break;
 	case RCC_APB2Peripherals_PORTF:
-		SETREGISTERBITSTATUS(APB2ENR, IOPFEN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB2ENR, IOPFEN, bStatus);
 		break;
 	case RCC_APB2Peripherals_PORTG:
-		SETREGISTERBITSTATUS(APB2ENR, IOPGEN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB2ENR, IOPGEN, bStatus);
 		break;
 	case RCC_APB2Peripherals_ADC1:
-		SETREGISTERBITSTATUS(APB2ENR, ADC1EN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB2ENR, ADC1EN, bStatus);
 		break;
 	case RCC_APB2Peripherals_ADC2:
-		SETREGISTERBITSTATUS(APB2ENR, ADC2EN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB2ENR, ADC2EN, bStatus);
 		break;
 	case RCC_APB2Peripherals_TIM1:
-		SETREGISTERBITSTATUS(APB2ENR, TIM1EN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB2ENR, TIM1EN, bStatus);
 		break;
 	case RCC_APB2Peripherals_SPI1:
-		SETREGISTERBITSTATUS(APB2ENR, SPI1EN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB2ENR, SPI1EN, bStatus);
 		break;
 	case RCC_APB2Peripherals_USART1:
-		SETREGISTERBITSTATUS(APB2ENR, USART1EN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB2ENR, USART1EN, bStatus);
 		break;
 	case RCC_APB2Peripherals_ADC3:
-		SETREGISTERBITSTATUS(APB2ENR, ADC3EN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB2ENR, ADC3EN, bStatus);
 		break;
 	default:
 		/* Do nothing */
@@ -160,8 +171,8 @@ STATIC void RCC_vSetAPB2PeripheralClockStatus(t_RCC_APB2Peripherals enuPeriphera
 /**
  * @brief This function initializes a certain peripheral clock on APB1 bus
  * @details This function initializes a certain peripheral clock on APB1 bus
- * @param enuPeripheral Peripheral to enable/disable its clock
- * @param bStatus Enable/Disable peripheral clock
+ * @param[in] enuPeripheral Peripheral to enable/disable its clock
+ * @param[in] bStatus Enable/Disable peripheral clock
  * @see t_RCC_APB1Peripherals
  */
 STATIC void RCC_vSetAPB1PeripheralClockStatus(t_RCC_APB1Peripherals enuPeripheral, t_bool bStatus)
@@ -169,69 +180,145 @@ STATIC void RCC_vSetAPB1PeripheralClockStatus(t_RCC_APB1Peripherals enuPeriphera
 	switch (enuPeripheral)
 	{
 	case RCC_APB1Peripherals_TIM2:
-		SETREGISTERBITSTATUS(APB1ENR, TIM2EN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB1ENR, TIM2EN, bStatus);
 		break;
 	case RCC_APB1Peripherals_TIM3:
-		SETREGISTERBITSTATUS(APB1ENR, TIM3EN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB1ENR, TIM3EN, bStatus);
 		break;
 	case RCC_APB1Peripherals_TIM4:
-		SETREGISTERBITSTATUS(APB1ENR, TIM4EN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB1ENR, TIM4EN, bStatus);
 		break;
 	case RCC_APB1Peripherals_TIM5:
-		SETREGISTERBITSTATUS(APB1ENR, TIM5EN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB1ENR, TIM5EN, bStatus);
 		break;
 	case RCC_APB1Peripherals_TIM6:
-		SETREGISTERBITSTATUS(APB1ENR, TIM6EN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB1ENR, TIM6EN, bStatus);
 		break;
 	case RCC_APB1Peripherals_TIM7:
-		SETREGISTERBITSTATUS(APB1ENR, TIM7EN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB1ENR, TIM7EN, bStatus);
 		break;
 	case RCC_APB1Peripherals_WWDG:
-		SETREGISTERBITSTATUS(APB1ENR, WWDGEN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB1ENR, WWDGEN, bStatus);
 		break;
 	case RCC_APB1Peripherals_SPI2:
-		SETREGISTERBITSTATUS(APB1ENR, SPI2EN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB1ENR, SPI2EN, bStatus);
 		break;
 	case RCC_APB1Peripherals_SPI3:
-		SETREGISTERBITSTATUS(APB1ENR, SPI3EN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB1ENR, SPI3EN, bStatus);
 		break;
 	case RCC_APB1Peripherals_USART2:
-		SETREGISTERBITSTATUS(APB1ENR, USART2EN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB1ENR, USART2EN, bStatus);
 		break;
 	case RCC_APB1Peripherals_USART3:
-		SETREGISTERBITSTATUS(APB1ENR, USART3EN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB1ENR, USART3EN, bStatus);
 		break;
 	case RCC_APB1Peripherals_UART4:
-		SETREGISTERBITSTATUS(APB1ENR, UART4EN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB1ENR, UART4EN, bStatus);
 		break;
 	case RCC_APB1Peripherals_UART5:
-		SETREGISTERBITSTATUS(APB1ENR, UART5EN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB1ENR, UART5EN, bStatus);
 		break;
 	case RCC_APB1Peripherals_I2C1:
-		SETREGISTERBITSTATUS(APB1ENR, I2C1EN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB1ENR, I2C1EN, bStatus);
 		break;
 	case RCC_APB1Peripherals_I2C2:
-		SETREGISTERBITSTATUS(APB1ENR, I2C2EN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB1ENR, I2C2EN, bStatus);
 		break;
 	case RCC_APB1Peripherals_USB:
-		SETREGISTERBITSTATUS(APB1ENR, USBEN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB1ENR, USBEN, bStatus);
 		break;
 	case RCC_APB1Peripherals_CAN:
-		SETREGISTERBITSTATUS(APB1ENR, CANEN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB1ENR, CANEN, bStatus);
 		break;
 	case RCC_APB1Peripherals_BKP:
-		SETREGISTERBITSTATUS(APB1ENR, BKPEN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB1ENR, BKPEN, bStatus);
 		break;
 	case RCC_APB1Peripherals_PWR:
-		SETREGISTERBITSTATUS(APB1ENR, PWREN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB1ENR, PWREN, bStatus);
 		break;
 	case RCC_APB1Peripherals_DAC:
-		SETREGISTERBITSTATUS(APB1ENR, DACEN, bStatus);
+		RCC_SET_REGISTER_BIT_STATUS(APB1ENR, DACEN, bStatus);
 		break;
 	default:
 		/* Do nothing */
 		break;
 	}
+}
+
+/**
+ * @brief This function initializes a certain peripheral clock on AHB bus
+ * @details This function initializes a certain peripheral clock on AHB bus
+ * @param[in] enuPeripheral Peripheral to enable/disable its clock
+ * @param[in] bStatus Enable/Disable peripheral clock
+ * @see t_RCC_AHBPeripherals
+ */
+STATIC void RCC_vSetAHBPeripheralClockStatus(t_RCC_AHBPeripherals enuPeripheral, t_bool bStatus)
+{
+	switch (enuPeripheral)
+	{
+	case RCC_AHBPeripherals_DMA1:
+		RCC_SET_REGISTER_BIT_STATUS(AHBENR, DMA1EN, bStatus);
+		break;
+	case RCC_AHBPeripherals_DMA2:
+		RCC_SET_REGISTER_BIT_STATUS(AHBENR, DMA2EN, bStatus);
+		break;
+	case RCC_AHBPeripherals_CRC:
+		RCC_SET_REGISTER_BIT_STATUS(AHBENR, CRCEN, bStatus);
+		break;
+	default:
+		/* Do nothing */
+		break;
+	}
+}
+
+/**
+ * @brief This function sets the ADC prescaler
+ * @details This function sets the ADC prescaler to be used by ADC
+ */
+STATIC void RCC_vSetADCPreScaler(void)
+{
+	/* Set ADC prescaler */
+	RCC.CFGR.ADCPRE = RCC_ADC_PRESCALER;
+}
+
+/**
+ * @brief This function sets the USB prescaler
+ * @details This function sets the USB prescaler to be used by USB
+ */
+STATIC void RCC_vSetUSBPrescaler(void)
+{
+	/* Set USB prescaler */
+	RCC.CFGR.USBPRE = RCC_USB_PRESCALER;
+}
+
+/**
+ * @brief This function sets the AHB prescaler
+ * @details This function sets the AHB prescaler to be used by AHB bus
+ */
+STATIC void RCC_vSetAHBPrescaler(void)
+{
+	/* Set AHB prescaler */
+	RCC.CFGR.HPRE = RCC_AHB_PRESCALER;
+}
+
+/**
+ * @brief This function sets the APB1 prescaler
+ * @details This function sets the APB1 prescaler to be used by APB1 bus
+ */
+STATIC void RCC_vSetAPB1Prescaler(void)
+{
+	/* Set APB1 prescaler */
+	RCC.CFGR.PPRE1 = RCC_APB1_PRESCALER;
+}
+
+/**
+ * @brief This function sets the APB2 prescaler
+ * @details This function sets the APB2 prescaler to be used by APB2 bus
+ */
+STATIC void RCC_vSetAPB2Prescaler(void)
+{
+	/* Set APB2 prescaler */
+	RCC.CFGR.PPRE2 = RCC_APB2_PRESCALER;
 }
 
 void RCC_vInit(void)
@@ -254,6 +341,11 @@ void RCC_vInit(void)
 	}
 
 	RCC_vInitSystemClock();
+	RCC_vSetAHBPrescaler();
+	RCC_vSetAPB1Prescaler();
+	RCC_vSetAPB2Prescaler();
+	RCC_vSetADCPreScaler();
+	RCC_vSetUSBPrescaler();
 	RCC_vInitMCO();
 }
 
@@ -275,4 +367,14 @@ void RCC_vEnablePeripheralABP1(t_RCC_APB1Peripherals enuPeripheral)
 void RCC_vDisablePeripheralABP1(t_RCC_APB1Peripherals enuPeripheral)
 {
 	RCC_vSetAPB1PeripheralClockStatus(enuPeripheral, FALSE);
+}
+
+void RCC_vEnablePeripheralAHB(t_RCC_AHBPeripherals enuPeripheral)
+{
+	RCC_vSetAHBPeripheralClockStatus(enuPeripheral, TRUE);
+}
+
+void RCC_vDisablePeripheralAHB(t_RCC_AHBPeripherals enuPeripheral)
+{
+	RCC_vSetAHBPeripheralClockStatus(enuPeripheral, FALSE);
 }

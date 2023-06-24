@@ -433,11 +433,11 @@ typedef enum
 } t_RCC_APB1Peripherals;
 
 /**
- * @enum RCC_AHBPeripherals
+ * @typedef t_RCC_AHBPeripherals
  * @brief This enum contains the AHB peripherals that are connected to the AHB bus
  * @details This enum contains the AHB peripherals that are connected to the AHB bus
  */
-enum RCC_AHBPeripherals
+typedef enum
 {
 	/**
 	 * @brief DMA 1 clock
@@ -451,7 +451,7 @@ enum RCC_AHBPeripherals
 	 * @brief CRC clock
 	 */
 	RCC_AHBPeripherals_CRC = 5
-};
+} t_RCC_AHBPeripherals;
 
 /** @} */
 /**
@@ -493,6 +493,20 @@ void RCC_vEnablePeripheralABP1(t_RCC_APB1Peripherals enuPeripheral);
  * @param[in] enuPeripheral Peripheral to be disabled
  */
 void RCC_vDisablePeripheralABP1(t_RCC_APB1Peripherals enuPeripheral);
+
+/**
+ * @brief This function enables the clock of a peripheral connected to the AHB bus
+ * @details This function enables the clock of a peripheral connected to the AHB bus
+ * @param[in] enuPeripheral Peripheral to be enabled
+ */
+void RCC_vEnablePeripheralAHB(t_RCC_AHBPeripherals enuPeripheral);
+
+/**
+ * @brief This function disables the clock of a peripheral connected to the AHB bus
+ * @details This function disables the clock of a peripheral connected to the AHB bus
+ * @param[in] enuPeripheral Peripheral to be disabled
+ */
+void RCC_vDisablePeripheralAHB(t_RCC_AHBPeripherals enuPeripheral);
 
 /** @} */
 /** @} */
