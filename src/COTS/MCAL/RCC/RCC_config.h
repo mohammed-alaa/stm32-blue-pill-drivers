@@ -71,6 +71,56 @@
  */
 #define RCC_MCO_SOURCE (RCC_MCOSources_NoClock)
 
+/**
+ * @def RCC_ADC_PRESCALER
+ * @brief This macro defines the ADC clock prescaler
+ * @details This macro defines the ADC clock prescaler
+ * @see RCC_ADCPrescaler
+ */
+#define RCC_ADC_PRESCALER (RCC_ADCPrescaler_DividedBy4)
+
+/**
+ * @def RCC_AHB_PRESCALER
+ * @brief This macro defines the AHB clock prescaler
+ * @details This macro defines the AHB clock prescaler
+ * @see RCC_AHBPrescaler
+ */
+#define RCC_AHB_PRESCALER (RCC_AHBPrescaler_NotDivided)
+
+/**
+ * @def RCC_APB1_PRESCALER
+ * @brief This macro defines the APB1 clock prescaler
+ * @details This macro defines the APB1 clock prescaler
+ * @see RCC_APBPrescaler
+ */
+#define RCC_APB1_PRESCALER (RCC_APBPrescaler_NotDivided)
+
+/**
+ * @def RCC_APB2_PRESCALER
+ * @brief This macro defines the APB2 clock prescaler
+ * @details This macro defines the APB2 clock prescaler
+ * @see RCC_APBPrescaler
+ */
+#define RCC_APB2_PRESCALER (RCC_APBPrescaler_NotDivided)
+
+/**
+ * @def RCC_USB_PRESCALER
+ * @brief This macro defines the USB clock prescaler
+ * @details This macro defines the USB clock prescaler
+ * @see RCC_USBPrescaler
+ */
+#define RCC_USB_PRESCALER (RCC_USBPrescaler_1)
+
+/**
+ * @def RCC_ENABLE_CSS
+ * @brief This macro defines the clock security system state
+ * @details This macro defines the clock security system state
+ * Options:
+ * 	- FALSE: CSS disabled
+ * 	- TRUE: CSS enabled
+ */
+#define RCC_ENABLE_CSS (FALSE)
+
 /** @} */
 /** @} */
 /** @} */
