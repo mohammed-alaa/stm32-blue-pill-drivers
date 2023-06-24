@@ -12,13 +12,28 @@
 #include "LSTD_TYPES.h"
 
 /**
+ * @addtogroup standard_library
+ * @{
+ */
+
+/**
+ * @addtogroup shared_library Shared library
+ * @brief This library contains the shared macros and functions for all the standard types
+ * @{
+ */
+
+/**
  * @def SET_REGISTER_BIT_STATUS
  * @brief Set register bit status (1 or 0)
  * @details This macro is used to set a specific bit in a specific register
- * @param REG Register name
- * @param BIT Bit name
- * @param bEnable Bit status (TRUE or FALSE)
+ * @param[in] PERPH Peripheral address
+ * @param[in] REG Register name
+ * @param[in] BIT Bit name
+ * @param[in] BSTATUS Bit status (TRUE or FALSE)
  */
-#define SET_REGISTER_BIT_STATUS(PERPH, REG, BIT, bEnable) (PERPH.REG.BIT = (bEnable == TRUE) ? 1U : 0U)
+#define SET_REGISTER_BIT_STATUS(PERPH, REG, BIT, BSTATUS) (PERPH.REG.BIT = (BSTATUS == TRUE) ? 1U : 0U)
 
-#endif
+/** @} */
+/** @} */
+
+#endif /* LSTD_SHARED_H_ */

@@ -995,13 +995,14 @@ typedef struct
 #define RCC REGISTER(t_RCC_RegisterMap, RCC_BASE_ADDRESS)
 
 /**
- * @def SET_REGISTER_BIT_STATUS
- * @brief Set register bit status (1 or 0)
- * @param REG Register name
- * @param BIT Bit name
- * @param bStatus Bit status value (TRUE or FALSE)
+ * @def RCC_SET_REGISTER_BIT_STATUS
+ * @brief Set RCC register bit status (TRUE or FALSE)
+ * @details This macro sets the RCC register bit status (TRUE or FALSE)
+ * @param[in] REG Register name
+ * @param[in] BIT Bit name
+ * @param[in] BSTATUS Bit status value (TRUE or FALSE)
  */
-#define RCC_SET_REGISTER_BIT_STATUS(REG, BIT, bStatus) SET_REGISTER_BIT_STATUS(RCC, REG, BIT, bStatus)
+#define RCC_SET_REGISTER_BIT_STATUS(REG, BIT, BSTATUS) SET_REGISTER_BIT_STATUS(RCC, REG, BIT, BSTATUS)
 
 /** @} */
 /** @} */
