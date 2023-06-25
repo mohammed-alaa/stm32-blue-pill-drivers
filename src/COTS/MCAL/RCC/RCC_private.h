@@ -7,6 +7,12 @@
  * @date 2023-06-18
  */
 
+/**
+ * @dir RCC
+ * @brief RCC Module
+ * @details RCC Module contains the functions for controlling the clock system of the microcontroller
+ */
+
 #ifndef _RCC_PRIVATE_H_
 #define _RCC_PRIVATE_H_
 
