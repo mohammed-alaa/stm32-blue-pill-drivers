@@ -11,7 +11,7 @@
  * @dir GPIO
  * @brief GPIO Module
  * @details This module contains all the APIs related to the GPIO module
-*/
+ */
 
 #ifndef _GPIO_PRIVATE_H_
 #define _GPIO_PRIVATE_H_
@@ -175,7 +175,7 @@ typedef struct
  * @def BASE_ADDRESS_PORT_A
  * @brief Base Address of Port A
  */
-#define BASE_ADDRESS_PORT_A REGISTER_ADDRESS(0x40010800)
+#define BASE_ADDRESS_PORT_A REGISTER_ADDRESS(0x40010800, 0)
 
 /**
  * @def GPIO_A
@@ -187,7 +187,7 @@ typedef struct
  * @def BASE_ADDRESS_PORT_B
  * @brief Base Address of Port B
  */
-#define BASE_ADDRESS_PORT_B REGISTER_ADDRESS(0x40010C00)
+#define BASE_ADDRESS_PORT_B REGISTER_ADDRESS(0x40010C00, 0)
 
 /**
  * @def GPIO_B
@@ -199,7 +199,7 @@ typedef struct
  * @def BASE_ADDRESS_PORT_C
  * @brief Base Address of Port C
  */
-#define BASE_ADDRESS_PORT_C REGISTER_ADDRESS(0x40011000)
+#define BASE_ADDRESS_PORT_C REGISTER_ADDRESS(0x40011000, 0)
 
 /**
  * @def GPIO_C
@@ -211,7 +211,7 @@ typedef struct
  * @def BASE_ADDRESS_PORT_D
  * @brief Base Address of Port D
  */
-#define BASE_ADDRESS_PORT_D REGISTER_ADDRESS(0x40011400)
+#define BASE_ADDRESS_PORT_D REGISTER_ADDRESS(0x40011400, 0)
 
 /**
  * @def GPIO_D
@@ -223,7 +223,7 @@ typedef struct
  * @def BASE_ADDRESS_PORT_E
  * @brief Base Address of Port E
  */
-#define BASE_ADDRESS_PORT_E REGISTER_ADDRESS(0x40011800)
+#define BASE_ADDRESS_PORT_E REGISTER_ADDRESS(0x40011800, 0)
 
 /**
  * @def GPIO_E
@@ -235,13 +235,25 @@ typedef struct
  * @def BASE_ADDRESS_PORT_F
  * @brief Base Address of Port F
  */
-#define BASE_ADDRESS_PORT_F REGISTER_ADDRESS(0x40011C00)
+#define BASE_ADDRESS_PORT_F REGISTER_ADDRESS(0x40011C00, 0)
 
 /**
  * @def GPIO_F
  * @brief GPIO Port F
  */
 #define GPIO_F REGISTER(t_GPIOx_RegisterMap, BASE_ADDRESS_PORT_F)
+
+/**
+ * @def BASE_ADDRESS_PORT_G
+ * @brief Base Address of Port G
+ */
+#define BASE_ADDRESS_PORT_G REGISTER_ADDRESS(0x40012000, 0)
+
+/**
+ * @def GPIO_G
+ * @brief GPIO Port G
+ */
+#define GPIO_G REGISTER(t_GPIOx_RegisterMap, BASE_ADDRESS_PORT_G)
 
 /** @} */
 /** @} */
