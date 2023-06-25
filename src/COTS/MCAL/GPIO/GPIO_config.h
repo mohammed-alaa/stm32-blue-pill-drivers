@@ -22,6 +22,9 @@
  * @{
  */
 
+#define DEFAULT_PIN_INPUT_TYPE	(t_GPIO_Input_Type_Floating)
+#define DEFAULT_PIN_OUTPUT_TYPE	(t_GPIO_Output_Type_Push_Pull)
+
 /** @} */
 /** @} */
 
