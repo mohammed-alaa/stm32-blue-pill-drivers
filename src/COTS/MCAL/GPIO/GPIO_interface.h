@@ -130,6 +130,107 @@ typedef enum
 	t_GPIO_Pins_15
 } t_GPIO_Pins;
 
+/**
+ * @typedef t_GPIO_Direction
+ * @brief GPIO Direction
+ * @details This type is used to select a GPIO pin direction
+ */
+typedef enum
+{
+	/**
+	 * @brief GPIO Pin Input
+	 */
+	t_GPIO_Direction_Input = 0,
+	/**
+	 * @brief GPIO Pin Output with max speed of 10 MHz
+	 */
+	t_GPIO_Direction_Output_10MHz,
+	/**
+	 * @brief GPIO Pin Output with max speed of 2 MHz
+	 */
+	t_GPIO_Direction_Output_2MHz,
+	/**
+	 * @brief GPIO Pin Output with max speed of 50 MHz
+	 */
+	t_GPIO_Direction_Output_50MHz
+} t_GPIO_Direction;
+
+/**
+ * @typedef t_GPIO_Output_Speed
+ * @brief GPIO Output Speed
+ * @details This type is used to select a GPIO pin output speed
+ */
+typedef enum
+{
+	/**
+	 * @brief GPIO Pin Output Speed 2 MHz
+	 */
+	t_GPIO_Output_Speed_2MHz = 0,
+	/**
+	 * @brief GPIO Pin Output Speed 10 MHz
+	 */
+	t_GPIO_Output_Speed_10MHz,
+	/**
+	 * @brief GPIO Pin Output Speed 50 MHz
+	 */
+	t_GPIO_Output_Speed_50MHz
+} t_GPIO_Output_Speed;
+
+/**
+ * @typedef t_GPIO_Output_Type
+ * @brief GPIO Output Type
+ * @details This type is used to select a GPIO pin output type
+ */
+typedef enum
+{
+	/**
+	 * @brief GPIO Pin Output Type: push-pull
+	 */
+	t_GPIO_Output_Type_Push_Pull = 0,
+	/**
+	 * @brief GPIO Pin Output Type: open-drain
+	 */
+	t_GPIO_Output_Type_Open_Drain,
+	/**
+	 * @brief GPIO Pin Output Type: alternate push-pull
+	 */
+	t_GPIO_Output_Type_Alternate_Push_Pull,
+	/**
+	 * @brief GPIO Pin Output Type: alternate open-drain
+	 */
+	t_GPIO_Output_Type_Alternate_Open_Drain
+} t_GPIO_Output_Type;
+
+/**
+ * @brief
+ *
+ */
+typedef enum
+{
+	/**
+	 * @brief GPIO Pin Input Type: analog
+	 */
+	t_GPIO_Input_Type_Analog = 0,
+	/**
+	 * @brief GPIO Pin Input Type: floating
+	 */
+	t_GPIO_Input_Type_Floating,
+	/**
+	 * @brief GPIO Pin Input Type: pull-up / pull-down
+	 */
+	t_GPIO_Input_Type_Pull_Up_Down
+} t_GPIO_Input_Type;
+
+/**
+ * @brief This function is used to set the direction of a GPIO pin
+ * @details This function is used to set the direction of a GPIO pin
+ * @param[in] tPort The GPIO port
+ * @param[in] tPin The GPIO pin
+ * @param[in] tDirection The GPIO pin direction
+ * @see t_GPIO_Ports t_GPIO_Pins t_GPIO_Direction
+ */
+void GPIO_vSetPinDirection(t_GPIO_Ports tPort, t_GPIO_Pins tPin, t_GPIO_Direction tDirection);
+
 /** @} */
 /** @} */
 #endif /* _GPIO_INTERFACE_H_ */
