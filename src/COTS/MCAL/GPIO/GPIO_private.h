@@ -151,6 +151,15 @@ typedef struct
 	 * @brief Port Configuration Register High
 	 */
 	t_GPIOx_CRH CRH;
+	/**
+	 * @brief Port Input Data Register
+	 * @warning This register is read-only
+	 */
+	t_u32 IDRx;
+	/**
+	 * @brief Port Output Data Register
+	 */
+	t_u32 ODRx;
 } t_GPIOx_RegisterMap;
 
 /** @} */
