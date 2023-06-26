@@ -56,11 +56,23 @@ typedef struct
 	 * @brief Port Input Data Register
 	 * @warning This register is read-only
 	 */
-	t_u32 IDRx;
+	t_u32 IDR;
 	/**
 	 * @brief Port Output Data Register
 	 */
-	t_u32 ODRx;
+	t_u32 ODR;
+	/**
+	 * @brief Port Bit Set/Reset Register
+	 */
+	t_u32 BSRR;
+	/**
+	 * @brief Port Bit Reset Register
+	 */
+	t_u32 BRR;
+	/**
+	 * @brief Port Lock Register
+	 */
+	// t_u32 LCKR;
 } t_GPIOx_RegisterMap;
 
 /** @} */
@@ -191,6 +203,13 @@ typedef struct
  * @details This value is used to shift to the configuration bits of a certain pin
  */
 #define PIN_CONFIGURATION_BITS_SHIFT_VALUE (2)
+
+/**
+ * @def PIN_RESET_SHIFT_VALUE
+ * @brief Pin Reset Shift Value
+ * @details This value is used to shift to the start of the position of the first pin bit in the BSRR register
+ */
+#define PIN_RESET_SHIFT_VALUE (16)
 
 /**
  * @def PIN_RESET_MASK
