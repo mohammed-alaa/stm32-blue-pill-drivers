@@ -156,27 +156,6 @@ typedef enum
 } t_GPIO_Direction;
 
 /**
- * @typedef t_GPIO_Output_Speed
- * @brief GPIO Output Speed
- * @details This type is used to select a GPIO pin output speed
- */
-typedef enum
-{
-	/**
-	 * @brief GPIO Pin Output Speed 2 MHz
-	 */
-	t_GPIO_Output_Speed_2MHz = 0,
-	/**
-	 * @brief GPIO Pin Output Speed 10 MHz
-	 */
-	t_GPIO_Output_Speed_10MHz,
-	/**
-	 * @brief GPIO Pin Output Speed 50 MHz
-	 */
-	t_GPIO_Output_Speed_50MHz
-} t_GPIO_Output_Speed;
-
-/**
  * @typedef t_GPIO_Output_Type
  * @brief GPIO Output Type
  * @details This type is used to select a GPIO pin output type
@@ -202,8 +181,9 @@ typedef enum
 } t_GPIO_Output_Type;
 
 /**
- * @brief
- *
+ * @enum t_GPIO_Input_Type
+ * @brief GPIO Input Type
+ * @details This type is used to select a GPIO pin input type
  */
 typedef enum
 {
