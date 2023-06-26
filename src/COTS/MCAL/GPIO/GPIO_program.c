@@ -8,7 +8,6 @@
  */
 
 #include "../../LIB/LSTD_TYPES.h"
-#include "../../LIB/LSTD_BITMATH.h"
 #include "../../LIB/LSTD_COMPILER.h"
 #include "../../LIB/LSTD_VALUES.h"
 #include "GPIO_private.h"
@@ -19,7 +18,7 @@
  * @def IS_PIN_IN_LOW_REGISTER
  * @brief Check if the pin is in the low register
  * @details This macro checks if the pin is in the low register (CRL)
- * @param[in] GPIO_PIN_SPAN The span of the pin in the configuration register (CRL or CRH)
+ * @param[in] GPIO_PIN The pin to check if it is in the low register (CRL) or not
  */
 #define IS_PIN_IN_LOW_REGISTER(GPIO_PIN) (GPIO_PIN <= t_GPIO_Pins_7)
 
@@ -32,7 +31,7 @@
 STATIC void GPIO_vGetPortAddress(t_GPIO_Ports tPort, P2VAR(P2VAR(t_GPIOx_RegisterMap)) ppu32PortBaseAddress)
 {
 	P2VAR(VOLATILE t_GPIOx_RegisterMap)
-	pu32PortBaseAddress = NULL;
+	pu32PortBaseAddress = (P2VAR(t_GPIOx_RegisterMap))NULL;
 
 	switch (tPort)
 	{
@@ -88,10 +87,10 @@ void GPIO_vSetPinDirection(t_GPIO_Ports tPort, t_GPIO_Pins tPin, t_GPIO_Directio
 	t_u32 u32TargetPinNewModeConfig = (tDirection | (u32DefaultPinType << PIN_CONFIGURATION_BITS_SHIFT_VALUE));
 	/* Store the base address of the GPIO port */
 	P2VAR(t_GPIOx_RegisterMap)
-	pu32PortBaseAddress = NULL;
+	pu32PortBaseAddress = (P2VAR(t_GPIOx_RegisterMap))NULL;
 	/* Store the pin mode and configuration bits of the pin */
 	P2VAR(t_u32)
-	pu32TargetPinModeConfig = NULL;
+	pu32TargetPinModeConfig = (P2VAR(t_u32))NULL;
 
 	/* Get the base address of the GPIO port */
 	GPIO_vGetPortAddress(tPort, &pu32PortBaseAddress);
@@ -107,10 +106,10 @@ void GPIO_vSetPinInputType(t_GPIO_Ports tPort, t_GPIO_Pins tPin, t_GPIO_Input_Ty
 	t_u8 u8PinSpan = GPIO_vGetPinSpan(tPin);
 	/* Store the base address of the GPIO port */
 	P2VAR(t_GPIOx_RegisterMap)
-	pu32PortBaseAddress = NULL;
+	pu32PortBaseAddress = (P2VAR(t_GPIOx_RegisterMap))NULL;
 	/* Store the pin mode and configuration bits of the pin */
 	P2VAR(t_u32)
-	pu32TargetPinModeConfig = NULL;
+	pu32TargetPinModeConfig = (P2VAR(t_u32))NULL;
 
 	/* Get the base address of the GPIO port */
 	GPIO_vGetPortAddress(tPort, &pu32PortBaseAddress);
@@ -126,10 +125,10 @@ void GPIO_vSetPinOutputType(t_GPIO_Ports tPort, t_GPIO_Pins tPin, t_GPIO_Output_
 	t_u8 u8PinSpan = GPIO_vGetPinSpan(tPin);
 	/* Store the base address of the GPIO port */
 	P2VAR(t_GPIOx_RegisterMap)
-	pu32PortBaseAddress = NULL;
+	pu32PortBaseAddress = (P2VAR(t_GPIOx_RegisterMap))NULL;
 	/* Store the pin mode and configuration bits of the pin */
 	P2VAR(t_u32)
-	pu32TargetPinModeConfig = NULL;
+	pu32TargetPinModeConfig = (P2VAR(t_u32))NULL;
 
 	/* Get the base address of the GPIO port */
 	GPIO_vGetPortAddress(tPort, &pu32PortBaseAddress);
@@ -143,7 +142,7 @@ void GPIO_vSetPinValue(t_GPIO_Ports tPort, t_GPIO_Pins tPin, t_GPIO_Value tValue
 {
 	/* Store the base address of the GPIO port */
 	P2VAR(t_GPIOx_RegisterMap)
-	pu32PortBaseAddress = NULL;
+	pu32PortBaseAddress = (P2VAR(t_GPIOx_RegisterMap))NULL;
 
 	/* Get the base address of the GPIO port */
 	GPIO_vGetPortAddress(tPort, &pu32PortBaseAddress);
@@ -167,7 +166,7 @@ t_GPIO_Value GPIO_tGetPinValue(t_GPIO_Ports tPort, t_GPIO_Pins tPin)
 {
 	/* Store the base address of the GPIO port */
 	P2VAR(t_GPIOx_RegisterMap)
-	pu32PortBaseAddress = NULL;
+	pu32PortBaseAddress = (P2VAR(t_GPIOx_RegisterMap))NULL;
 
 	/* Get the base address of the GPIO port */
 	GPIO_vGetPortAddress(tPort, &pu32PortBaseAddress);

@@ -198,7 +198,7 @@ typedef struct
 #define PIN_RESET_CONFIGURATION_MASK_VALUE ((t_u32)0x0000000CU)
 
 /**
- * @def PIN_MODE_BITS_SHIFT_VALUE
+ * @def PIN_CONFIGURATION_BITS_SHIFT_VALUE
  * @brief Pin Mode Bits Shift Value
  * @details This value is used to shift to the configuration bits of a certain pin
  */
