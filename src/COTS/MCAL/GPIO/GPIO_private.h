@@ -179,11 +179,34 @@ typedef struct
 #define PIN_RESET_MASK_VALUE ((t_u32)0x0000000FU)
 
 /**
+ * @def PIN_RESET_CONFIGURATION_MASK_VALUE
+ * @brief Pin Reset Configuration Mask Value
+ * @details This value is used to reset the configuration bits of a certain pin
+ */
+#define PIN_RESET_CONFIGURATION_MASK_VALUE ((t_u32)0x0000000CU)
+
+/**
  * @def PIN_MODE_BITS_SHIFT_VALUE
  * @brief Pin Mode Bits Shift Value
  * @details This value is used to shift to the configuration bits of a certain pin
  */
 #define PIN_CONFIGURATION_BITS_SHIFT_VALUE (2)
+
+/**
+ * @def PIN_RESET_MASK
+ * @brief Pin Reset Mask
+ * @details This mask is used to reset the mode and configuration bits of a certain pin
+ * @param[in] GPIO_PIN_SPAN The span of the pin in the configuration register (CRL or CRH)
+ */
+#define PIN_RESET_MASK(GPIO_PIN_SPAN) (~(PIN_RESET_MASK_VALUE << GPIO_PIN_SPAN))
+
+/**
+ * @def PIN_RESET_CONFIGURATIONS_MASK
+ * @brief Pin Reset Configurations Mask
+ * @details This mask is used to reset the configuration bits of a certain pin
+ * @param[in] GPIO_PIN_SPAN The span of the pin in the configuration register (CRL or CRH)
+ */
+#define PIN_RESET_CONFIGURATIONS_MASK(GPIO_PIN_SPAN) (~(PIN_RESET_CONFIGURATION_MASK_VALUE << (GPIO_PIN_SPAN + PIN_CONFIGURATION_BITS_SHIFT_VALUE)))
 
 /** @} */
 /** @} */
