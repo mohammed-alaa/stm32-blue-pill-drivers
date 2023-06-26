@@ -157,6 +157,35 @@ typedef struct
 #define GPIO_G REGISTER(t_GPIOx_RegisterMap, BASE_ADDRESS_PORT_G)
 
 /** @} */
+/**
+ * @defgroup gpio_pins_constants GPIO Pins Constants
+ * @brief GPIO Pins Constants
+ * @details This module contains a set of constants used in configuring the GPIO pins in the configuration register (CRL or CRH)
+ * @{
+ */
+
+/**
+ * @def PIN_SHIFT_VALUE
+ * @brief Pin Shift Value
+ * @details This value is used to shift to the start of a specific pin in the configuration register (CRL or CRH)
+ */
+#define PIN_SHIFT_VALUE (4)
+
+/**
+ * @def PIN_RESET_MASK_VALUE
+ * @brief Pin Reset Mask Value
+ * @details This value is used to reset the mode and configuration bits of a certain pin
+ */
+#define PIN_RESET_MASK_VALUE ((t_u32)0x0000000FU)
+
+/**
+ * @def PIN_MODE_BITS_SHIFT_VALUE
+ * @brief Pin Mode Bits Shift Value
+ * @details This value is used to shift to the configuration bits of a certain pin
+ */
+#define PIN_CONFIGURATION_BITS_SHIFT_VALUE (2)
+
+/** @} */
 /** @} */
 /** @} */
 
