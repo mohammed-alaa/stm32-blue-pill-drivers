@@ -201,6 +201,18 @@ typedef enum
 	t_GPIO_Input_Type_Pull_Up_Down
 } t_GPIO_Input_Type;
 
+typedef enum
+{
+	/**
+	 * @brief GPIO Pin Value: LOW (FALSE/0)
+	 */
+	t_GPIO_Value_Low = FALSE,
+	/**
+	 * @brief GPIO Pin Value: HIGH (TRUE/1)
+	 */
+	t_GPIO_Value_High = TRUE
+} t_GPIO_Value;
+
 /**
  * @brief This function is used to set the direction of a GPIO pin
  * @details This function is used to set the direction of a GPIO pin
@@ -230,6 +242,16 @@ void GPIO_vSetPinInputType(t_GPIO_Ports tPort, t_GPIO_Pins tPin, t_GPIO_Input_Ty
  * @see t_GPIO_Ports t_GPIO_Pins t_GPIO_Output_Type
  */
 void GPIO_vSetPinOutputType(t_GPIO_Ports tPort, t_GPIO_Pins tPin, t_GPIO_Output_Type tOutputType);
+
+/**
+ * @brief This function is used to set the value of a GPIO pin
+ * @details This function is used to set the value of a GPIO pin
+ * @param[in] tPort The GPIO port
+ * @param[in] tPin The GPIO pin
+ * @param[in] tValue The GPIO pin value
+ * @see t_GPIO_Ports t_GPIO_Pins t_GPIO_Value
+ */
+void GPIO_vSetPinValue(t_GPIO_Ports tPort, t_GPIO_Pins tPin, t_GPIO_Value tValue);
 
 /** @} */
 /** @} */

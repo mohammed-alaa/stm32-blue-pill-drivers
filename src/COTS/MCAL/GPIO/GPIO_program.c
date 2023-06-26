@@ -138,3 +138,27 @@ void GPIO_vSetPinOutputType(t_GPIO_Ports tPort, t_GPIO_Pins tPin, t_GPIO_Output_
 	/* Set the mode and configuration bits of the pin */
 	*pu32TargetPinModeConfig = (*pu32TargetPinModeConfig & PIN_RESET_CONFIGURATIONS_MASK(u8PinSpan)) | (t_u32)(tOutputType << (u8PinSpan + PIN_CONFIGURATION_BITS_SHIFT_VALUE));
 }
+
+void GPIO_vSetPinValue(t_GPIO_Ports tPort, t_GPIO_Pins tPin, t_GPIO_Value tValue)
+{
+	/* Store the base address of the GPIO port */
+	P2VAR(t_GPIOx_RegisterMap)
+	pu32PortBaseAddress = NULL;
+
+	/* Get the base address of the GPIO port */
+	GPIO_vGetPortAddress(tPort, &pu32PortBaseAddress);
+
+	/* Set the value of the pin */
+	if (tValue == t_GPIO_Value_High)
+	{
+		pu32PortBaseAddress->BSRR = (t_u32)(TRUE << tPin);
+	}
+	else if (tValue == t_GPIO_Value_Low)
+	{
+		pu32PortBaseAddress->BSRR = (t_u32)(TRUE << (tPin + PIN_RESET_SHIFT_VALUE));
+	}
+	else
+	{
+		/* Do nothing */
+	}
+}
