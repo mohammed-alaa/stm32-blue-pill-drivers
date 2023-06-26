@@ -162,3 +162,16 @@ void GPIO_vSetPinValue(t_GPIO_Ports tPort, t_GPIO_Pins tPin, t_GPIO_Value tValue
 		/* Do nothing */
 	}
 }
+
+t_GPIO_Value GPIO_tGetPinValue(t_GPIO_Ports tPort, t_GPIO_Pins tPin)
+{
+	/* Store the base address of the GPIO port */
+	P2VAR(t_GPIOx_RegisterMap)
+	pu32PortBaseAddress = NULL;
+
+	/* Get the base address of the GPIO port */
+	GPIO_vGetPortAddress(tPort, &pu32PortBaseAddress);
+
+	/* Get the value of the pin */
+	return (t_GPIO_Value)((pu32PortBaseAddress->IDR >> tPin) & TRUE);
+}
