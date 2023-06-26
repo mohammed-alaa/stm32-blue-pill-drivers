@@ -11,10 +11,18 @@
 /**
  * @brief Change this to the macro of the desired application to run
  **/
-// #define
+#define TestingGPIO
+
+#if defined TestingGPIO
+#include "TestingGPIO/TestApp_TestingGPIO_main.h"
+#endif
 
 void vAPPS_main(void)
 {
+#ifdef TestingGPIO
+	vTestApp_TestingGPIO_main();
+#endif
+
 	for (;;)
 	{
 		/* Do nothing */
