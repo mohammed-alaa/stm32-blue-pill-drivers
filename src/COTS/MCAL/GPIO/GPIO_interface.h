@@ -211,6 +211,26 @@ typedef enum
  */
 void GPIO_vSetPinDirection(t_GPIO_Ports tPort, t_GPIO_Pins tPin, t_GPIO_Direction tDirection);
 
+/**
+ * @brief This function is used to set the input type of a GPIO pin
+ * @details This function is used to set the input type of a GPIO pin
+ * @param[in] tPort The GPIO port
+ * @param[in] tPin The GPIO pin
+ * @param[in] tInputType The GPIO pin input type
+ * @see t_GPIO_Ports t_GPIO_Pins t_GPIO_Input_Type
+ */
+void GPIO_vSetPinInputType(t_GPIO_Ports tPort, t_GPIO_Pins tPin, t_GPIO_Input_Type tInputType);
+
+/**
+ * @brief This function is used to set the output type of a GPIO pin
+ * @details This function is used to set the output type of a GPIO pin
+ * @param[in] tPort The GPIO port
+ * @param[in] tPin The GPIO pin
+ * @param[in] tOutputType The GPIO pin output type
+ * @see t_GPIO_Ports t_GPIO_Pins t_GPIO_Output_Type
+ */
+void GPIO_vSetPinOutputType(t_GPIO_Ports tPort, t_GPIO_Pins tPin, t_GPIO_Output_Type tOutputType);
+
 /** @} */
 /** @} */
 #endif /* _GPIO_INTERFACE_H_ */
