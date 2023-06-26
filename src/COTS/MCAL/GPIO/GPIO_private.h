@@ -38,105 +38,6 @@
  */
 
 /**
- * @struct t_GPIOx_CR_Mode_CNF_x
- * @brief Pin Mode and Configuration
- * @details This type is used to configure the mode and configuration of a pin.
- */
-typedef struct
-{
-	/**
-	 * @brief Pin Mode
-	 */
-	t_u32 MODE : 2;
-	/**
-	 * @brief Pin Configuration
-	 */
-	t_u32 CNF : 2;
-} t_GPIOx_CR_Mode_CNF_x;
-
-/**
- * @struct t_GPIOx_CRL
- * @brief Port Configuration Register Low
- * @details This type is used to configure the mode and configuration of the low pins of a port
- */
-typedef struct
-{
-	/**
-	 * @brief Pin Mode and Configuration for pin 0
-	 */
-	t_GPIOx_CR_Mode_CNF_x MODE_CNF_0;
-	/**
-	 * @brief Pin Mode and Configuration for pin 1
-	 */
-	t_GPIOx_CR_Mode_CNF_x MODE_CNF_1;
-	/**
-	 * @brief Pin Mode and Configuration for pin 2
-	 */
-	t_GPIOx_CR_Mode_CNF_x MODE_CNF_2;
-	/**
-	 * @brief Pin Mode and Configuration for pin 3
-	 */
-	t_GPIOx_CR_Mode_CNF_x MODE_CNF_3;
-	/**
-	 * @brief Pin Mode and Configuration for pin 4
-	 */
-	t_GPIOx_CR_Mode_CNF_x MODE_CNF_4;
-	/**
-	 * @brief Pin Mode and Configuration for pin 5
-	 */
-	t_GPIOx_CR_Mode_CNF_x MODE_CNF_5;
-	/**
-	 * @brief Pin Mode and Configuration for pin 6
-	 */
-	t_GPIOx_CR_Mode_CNF_x MODE_CNF_6;
-	/**
-	 * @brief Pin Mode and Configuration for pin 7
-	 */
-	t_GPIOx_CR_Mode_CNF_x MODE_CNF_7;
-} t_GPIOx_CRL;
-
-/**
- * @struct t_GPIOx_CRH
- * @brief Port Configuration Register High
- * @details This type is used to configure the mode and configuration of the high pins of a port
- */
-typedef struct
-{
-	/**
-	 * @brief Pin Mode and Configuration for pin 8
-	 */
-	t_GPIOx_CR_Mode_CNF_x MODE_CNF_8;
-	/**
-	 * @brief Pin Mode and Configuration for pin 9
-	 */
-	t_GPIOx_CR_Mode_CNF_x MODE_CNF_9;
-	/**
-	 * @brief Pin Mode and Configuration for pin 10
-	 */
-	t_GPIOx_CR_Mode_CNF_x MODE_CNF_10;
-	/**
-	 * @brief Pin Mode and Configuration for pin 11
-	 */
-	t_GPIOx_CR_Mode_CNF_x MODE_CNF_11;
-	/**
-	 * @brief Pin Mode and Configuration for pin 12
-	 */
-	t_GPIOx_CR_Mode_CNF_x MODE_CNF_12;
-	/**
-	 * @brief Pin Mode and Configuration for pin 13
-	 */
-	t_GPIOx_CR_Mode_CNF_x MODE_CNF_13;
-	/**
-	 * @brief Pin Mode and Configuration for pin 14
-	 */
-	t_GPIOx_CR_Mode_CNF_x MODE_CNF_14;
-	/**
-	 * @brief Pin Mode and Configuration for pin 15
-	 */
-	t_GPIOx_CR_Mode_CNF_x MODE_CNF_15;
-} t_GPIOx_CRH;
-
-/**
  * @struct t_GPIOx_RegisterMap
  * @brief GPIO Register Map
  * @details This type is used to access the GPIO registers
@@ -146,11 +47,11 @@ typedef struct
 	/**
 	 * @brief Port Configuration Register Low
 	 */
-	t_GPIOx_CRL CRL;
+	t_u32 CRL;
 	/**
 	 * @brief Port Configuration Register High
 	 */
-	t_GPIOx_CRH CRH;
+	t_u32 CRH;
 	/**
 	 * @brief Port Input Data Register
 	 * @warning This register is read-only
