@@ -8,7 +8,7 @@
  */
 
 /**
- * @dir GPIO
+ * @dir MCAL/GPIO
  * @brief GPIO Module
  * @details This module contains all the APIs related to the GPIO module
  */

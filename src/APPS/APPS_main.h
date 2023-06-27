@@ -8,7 +8,7 @@
  */
 
 /**
- * @dir src/APPS
+ * @dir APPS
  * @brief Applications
  * @details This module contains all the testing applications
  */

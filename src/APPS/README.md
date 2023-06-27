@@ -18,6 +18,15 @@ Testing application's directory has the following structure:
 - APPS_main.h
 - APPS_main.c
 - <Application name>/
-    - <Application name>_main.h
-    - <Application name>_main.c
+    - TestApp_<Application name>_main.h
+    - TestApp_<Application name>_main.c
+```
+
+### List
+---
+
+```
+Name: TestingGPIO
+Description: This application tests the GPIO driver.
+Activision Macro: TestingGPIO
 ```

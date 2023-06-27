@@ -30,31 +30,31 @@ typedef enum
 	/**
 	 * @brief GPIO Port A
 	 */
-	t_GPIO_Ports_A = 0,
+	GPIO_Ports_A = 0,
 	/**
 	 * @brief GPIO Port B
 	 */
-	t_GPIO_Ports_B,
+	GPIO_Ports_B,
 	/**
 	 * @brief GPIO Port C
 	 */
-	t_GPIO_Ports_C,
+	GPIO_Ports_C,
 	/**
 	 * @brief GPIO Port D
 	 */
-	t_GPIO_Ports_D,
+	GPIO_Ports_D,
 	/**
 	 * @brief GPIO Port E
 	 */
-	t_GPIO_Ports_E,
+	GPIO_Ports_E,
 	/**
 	 * @brief GPIO Port F
 	 */
-	t_GPIO_Ports_F,
+	GPIO_Ports_F,
 	/**
 	 * @brief GPIO Port G
 	 */
-	t_GPIO_Ports_G
+	GPIO_Ports_G
 } t_GPIO_Ports;
 
 /**
@@ -67,67 +67,67 @@ typedef enum
 	/**
 	 * @brief GPIO Pin 0
 	 */
-	t_GPIO_Pins_0 = 0,
+	GPIO_Pins_0 = 0,
 	/**
 	 * @brief GPIO Pin 1
 	 */
-	t_GPIO_Pins_1,
+	GPIO_Pins_1,
 	/**
 	 * @brief GPIO Pin 2
 	 */
-	t_GPIO_Pins_2,
+	GPIO_Pins_2,
 	/**
 	 * @brief GPIO Pin 3
 	 */
-	t_GPIO_Pins_3,
+	GPIO_Pins_3,
 	/**
 	 * @brief GPIO Pin 4
 	 */
-	t_GPIO_Pins_4,
+	GPIO_Pins_4,
 	/**
 	 * @brief GPIO Pin 5
 	 */
-	t_GPIO_Pins_5,
+	GPIO_Pins_5,
 	/**
 	 * @brief GPIO Pin 6
 	 */
-	t_GPIO_Pins_6,
+	GPIO_Pins_6,
 	/**
 	 * @brief GPIO Pin 7
 	 */
-	t_GPIO_Pins_7,
+	GPIO_Pins_7,
 	/**
 	 * @brief GPIO Pin 8
 	 */
-	t_GPIO_Pins_8,
+	GPIO_Pins_8,
 	/**
 	 * @brief GPIO Pin 9
 	 */
-	t_GPIO_Pins_9,
+	GPIO_Pins_9,
 	/**
 	 * @brief GPIO Pin 10
 	 */
-	t_GPIO_Pins_10,
+	GPIO_Pins_10,
 	/**
 	 * @brief GPIO Pin 11
 	 */
-	t_GPIO_Pins_11,
+	GPIO_Pins_11,
 	/**
 	 * @brief GPIO Pin 12
 	 */
-	t_GPIO_Pins_12,
+	GPIO_Pins_12,
 	/**
 	 * @brief GPIO Pin 13
 	 */
-	t_GPIO_Pins_13,
+	GPIO_Pins_13,
 	/**
 	 * @brief GPIO Pin 14
 	 */
-	t_GPIO_Pins_14,
+	GPIO_Pins_14,
 	/**
 	 * @brief GPIO Pin 15
 	 */
-	t_GPIO_Pins_15
+	GPIO_Pins_15
 } t_GPIO_Pins;
 
 /**
@@ -140,19 +140,19 @@ typedef enum
 	/**
 	 * @brief GPIO Pin Input
 	 */
-	t_GPIO_Direction_Input = 0,
+	GPIO_Direction_Input = 0,
 	/**
 	 * @brief GPIO Pin Output with max speed of 10 MHz
 	 */
-	t_GPIO_Direction_Output_10MHz,
+	GPIO_Direction_Output_10MHz,
 	/**
 	 * @brief GPIO Pin Output with max speed of 2 MHz
 	 */
-	t_GPIO_Direction_Output_2MHz,
+	GPIO_Direction_Output_2MHz,
 	/**
 	 * @brief GPIO Pin Output with max speed of 50 MHz
 	 */
-	t_GPIO_Direction_Output_50MHz
+	GPIO_Direction_Output_50MHz
 } t_GPIO_Direction;
 
 /**
@@ -165,19 +165,19 @@ typedef enum
 	/**
 	 * @brief GPIO Pin Output Type: push-pull
 	 */
-	t_GPIO_Output_Type_Push_Pull = 0,
+	GPIO_Output_Type_Push_Pull = 0,
 	/**
 	 * @brief GPIO Pin Output Type: open-drain
 	 */
-	t_GPIO_Output_Type_Open_Drain,
+	GPIO_Output_Type_Open_Drain,
 	/**
 	 * @brief GPIO Pin Output Type: alternate push-pull
 	 */
-	t_GPIO_Output_Type_Alternate_Push_Pull,
+	GPIO_Output_Type_Alternate_Push_Pull,
 	/**
 	 * @brief GPIO Pin Output Type: alternate open-drain
 	 */
-	t_GPIO_Output_Type_Alternate_Open_Drain
+	GPIO_Output_Type_Alternate_Open_Drain
 } t_GPIO_Output_Type;
 
 /**
@@ -190,15 +190,15 @@ typedef enum
 	/**
 	 * @brief GPIO Pin Input Type: analog
 	 */
-	t_GPIO_Input_Type_Analog = 0,
+	GPIO_Input_Type_Analog = 0,
 	/**
 	 * @brief GPIO Pin Input Type: floating
 	 */
-	t_GPIO_Input_Type_Floating,
+	GPIO_Input_Type_Floating,
 	/**
 	 * @brief GPIO Pin Input Type: pull-up / pull-down
 	 */
-	t_GPIO_Input_Type_Pull_Up_Down
+	GPIO_Input_Type_Pull_Up_Down
 } t_GPIO_Input_Type;
 
 /**
@@ -211,11 +211,11 @@ typedef enum
 	/**
 	 * @brief GPIO Pin Value: LOW (0)
 	 */
-	t_GPIO_Value_Low = 0,
+	GPIO_Value_Low = 0,
 	/**
 	 * @brief GPIO Pin Value: HIGH (1)
 	 */
-	t_GPIO_Value_High
+	GPIO_Value_High
 } t_GPIO_Value;
 
 /**
