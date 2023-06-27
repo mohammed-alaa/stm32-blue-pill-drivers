@@ -39,7 +39,7 @@
  * @param[in] REG_TYPE The type of the register
  * @note REG_TYPE can be a standard type (e.g. t_u8, t_u16, t_u32, ...) or a user-defined type
  * @return The value of the register
- * @see
+ * @see typedefs
  */
 #define REGISTER(REG_TYPE, ADDRESS) (*(VOLATILE P2VAR(REG_TYPE))(ADDRESS))
 
