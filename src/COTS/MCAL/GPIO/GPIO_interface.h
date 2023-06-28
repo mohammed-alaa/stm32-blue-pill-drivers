@@ -188,17 +188,21 @@ typedef enum
 typedef enum
 {
 	/**
-	 * @brief GPIO Pin Input Type: analog
+	 * @brief GPIO Pin Input Type: Analog
 	 */
 	GPIO_Input_Type_Analog = 0,
 	/**
-	 * @brief GPIO Pin Input Type: floating
+	 * @brief GPIO Pin Input Type: Floating
 	 */
 	GPIO_Input_Type_Floating,
 	/**
-	 * @brief GPIO Pin Input Type: pull-up / pull-down
+	 * @brief GPIO Pin Input Type: Pull-Down
 	 */
-	GPIO_Input_Type_Pull_Up_Down
+	GPIO_Input_Type_Pull_Down,
+	/**
+	 * @brief GPIO Pin Input Type: Pull-Up
+	 */
+	GPIO_Input_Type_Pull_Up
 } t_GPIO_Input_Type;
 
 /**

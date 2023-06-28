@@ -198,6 +198,13 @@ typedef struct
 #define PIN_RESET_CONFIGURATION_MASK_VALUE ((t_u32)0x0000000CU)
 
 /**
+ * @def PIN_RESET_ODR_MASK_VALUE
+ * @brief Pin Reset ODR Mask Value
+ * @details This value is used to reset the ODR bit of a certain pin (in the BSRR register)
+ */
+#define PIN_RESET_ODR_MASK_VALUE ((t_u32)0x00000001U)
+
+/**
  * @def PIN_CONFIGURATION_BITS_SHIFT_VALUE
  * @brief Pin Mode Bits Shift Value
  * @details This value is used to shift to the configuration bits of a certain pin
@@ -226,6 +233,14 @@ typedef struct
  * @param[in] GPIO_PIN_SPAN The span of the pin in the configuration register (CRL or CRH)
  */
 #define PIN_RESET_CONFIGURATIONS_MASK(GPIO_PIN_SPAN) (~(PIN_RESET_CONFIGURATION_MASK_VALUE << (GPIO_PIN_SPAN + PIN_CONFIGURATION_BITS_SHIFT_VALUE)))
+
+/**
+ * @def PIN_RESET_ODR_MASK
+ * @brief Pin Reset ODR Mask
+ * @details This mask is used to reset the ODR bit of a certain pin (in the BSRR register)
+ * @param[in] GPIO_PIN_SPAN The span of the pin in the configuration register (CRL or CRH)
+ */
+#define PIN_RESET_ODR_MASK(GPIO_PIN_SPAN) (~(PIN_RESET_ODR_MASK_VALUE << GPIO_PIN_SPAN))
 
 /** @} */
 /** @} */
