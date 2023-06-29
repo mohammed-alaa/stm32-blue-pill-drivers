@@ -88,13 +88,11 @@ STATIC void GPIO_vSetPinInputTypePullUpDown(P2VAR(t_GPIOx_RegisterMap) pu32PortB
 {
 	if (tInputType >= GPIO_Input_Type_Pull_Down)
 	{
-		/* Get the pin span (the number of bits to shift to reach the target pin mode and configuration bits) */
-		t_u8 u8PinSpan = GPIO_vGetPinSpan(tPin);
 		/* Get the pin input type (pull-up or pull-down) */
 		t_u8 u8PinInputType = GET_BIT(tInputType, 0);
 
 		/* Set the pull-up/pull-down resistor */
-		pu32PortBaseAddress->ODR = (pu32PortBaseAddress->ODR & PIN_RESET_ODR_MASK(u8PinSpan)) | (t_u32)(u8PinInputType << u8PinSpan);
+		pu32PortBaseAddress->ODR = (pu32PortBaseAddress->ODR & PIN_RESET_ODR_MASK(tPin)) | (t_u32)(u8PinInputType << tPin);
 	}
 	else
 	{
@@ -106,12 +104,6 @@ void GPIO_vSetPinDirection(t_GPIO_Ports tPort, t_GPIO_Pins tPin, t_GPIO_Directio
 {
 	/* Get the pin span (the number of bits to shift to reach the target pin mode and configuration bits) */
 	t_u8 u8PinSpan = GPIO_vGetPinSpan(tPin);
-	/* Get the pin reset mask (the mask to reset the pin mode and configuration bits) */
-	t_u32 u32PinResetMask = PIN_RESET_MASK(u8PinSpan);
-	/* Get the default pin configuration based on the direction  (input or output) */
-	t_u32 u32DefaultPinType = (tDirection == GPIO_Direction_Input) ? DEFAULT_PIN_INPUT_TYPE : DEFAULT_PIN_OUTPUT_TYPE;
-	/* Set the new mode and configuration bits of the target pin */
-	t_u32 u32TargetPinNewModeConfig = (tDirection | (u32DefaultPinType << PIN_CONFIGURATION_BITS_SHIFT_VALUE));
 	/* Store the base address of the GPIO port */
 	P2VAR(t_GPIOx_RegisterMap)
 	pu32PortBaseAddress = (P2VAR(t_GPIOx_RegisterMap))NULL;
@@ -124,16 +116,16 @@ void GPIO_vSetPinDirection(t_GPIO_Ports tPort, t_GPIO_Pins tPin, t_GPIO_Directio
 	/* Get the pin mode and configuration bits of the pin */
 	pu32TargetPinModeConfig = IS_PIN_IN_LOW_REGISTER(tPin) ? &pu32PortBaseAddress->CRL : &pu32PortBaseAddress->CRH;
 	/* Set the mode and configuration bits of the pin */
-	*pu32TargetPinModeConfig = (*pu32TargetPinModeConfig & u32PinResetMask) | (u32TargetPinNewModeConfig << u8PinSpan);
+	*pu32TargetPinModeConfig = (*pu32TargetPinModeConfig & PIN_RESET_MASK(u8PinSpan)) | (tDirection << u8PinSpan);
 
 	/* Set the pull-up/pull-down resistor */
 	if (tDirection == GPIO_Direction_Input)
 	{
-		GPIO_vSetPinInputTypePullUpDown(pu32PortBaseAddress, tPin, u32DefaultPinType);
+		GPIO_vSetPinInputType(tPort, tPin, DEFAULT_PIN_INPUT_TYPE);
 	}
 	else
 	{
-		/* Do nothing */
+		GPIO_vSetPinOutputType(tPort, tPin, DEFAULT_PIN_OUTPUT_TYPE);
 	}
 }
 
@@ -141,6 +133,8 @@ void GPIO_vSetPinInputType(t_GPIO_Ports tPort, t_GPIO_Pins tPin, t_GPIO_Input_Ty
 {
 	/* Get the pin span (the number of bits to shift to reach the target pin mode and configuration bits) */
 	t_u8 u8PinSpan = GPIO_vGetPinSpan(tPin);
+	/* Check if the input type is pull-up or pull-down */
+	t_GPIO_Input_Type u8PinInputTypeModeConfigurations = (tInputType == GPIO_Input_Type_Pull_Up) ? GPIO_Input_Type_Pull_Down : tInputType;
 	/* Store the base address of the GPIO port */
 	P2VAR(t_GPIOx_RegisterMap)
 	pu32PortBaseAddress = (P2VAR(t_GPIOx_RegisterMap))NULL;
@@ -153,8 +147,7 @@ void GPIO_vSetPinInputType(t_GPIO_Ports tPort, t_GPIO_Pins tPin, t_GPIO_Input_Ty
 	/* Get the pin mode and configuration bits of the pin */
 	pu32TargetPinModeConfig = IS_PIN_IN_LOW_REGISTER(tPin) ? &pu32PortBaseAddress->CRL : &pu32PortBaseAddress->CRH;
 	/* Set the mode and configuration bits of the pin */
-	*pu32TargetPinModeConfig = (*pu32TargetPinModeConfig & PIN_RESET_CONFIGURATIONS_MASK(u8PinSpan)) | (t_u32)(tInputType << (u8PinSpan + PIN_CONFIGURATION_BITS_SHIFT_VALUE));
-
+	*pu32TargetPinModeConfig = (*pu32TargetPinModeConfig & PIN_RESET_CONFIGURATIONS_MASK(u8PinSpan)) | (u8PinInputTypeModeConfigurations << (u8PinSpan + PIN_CONFIGURATION_BITS_SHIFT_VALUE));
 	/* Set the pull-up/pull-down resistor */
 	GPIO_vSetPinInputTypePullUpDown(pu32PortBaseAddress, tPin, tInputType);
 }

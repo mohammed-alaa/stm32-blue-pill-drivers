@@ -224,7 +224,7 @@ typedef struct
  * @details This mask is used to reset the mode and configuration bits of a certain pin
  * @param[in] GPIO_PIN_SPAN The span of the pin in the configuration register (CRL or CRH)
  */
-#define PIN_RESET_MASK(GPIO_PIN_SPAN) (~(PIN_RESET_MASK_VALUE << GPIO_PIN_SPAN))
+#define PIN_RESET_MASK(GPIO_PIN_SPAN) ~(PIN_RESET_MASK_VALUE << GPIO_PIN_SPAN)
 
 /**
  * @def PIN_RESET_CONFIGURATIONS_MASK
@@ -232,7 +232,7 @@ typedef struct
  * @details This mask is used to reset the configuration bits of a certain pin
  * @param[in] GPIO_PIN_SPAN The span of the pin in the configuration register (CRL or CRH)
  */
-#define PIN_RESET_CONFIGURATIONS_MASK(GPIO_PIN_SPAN) (~(PIN_RESET_CONFIGURATION_MASK_VALUE << (GPIO_PIN_SPAN + PIN_CONFIGURATION_BITS_SHIFT_VALUE)))
+#define PIN_RESET_CONFIGURATIONS_MASK(GPIO_PIN_SPAN) ~(PIN_RESET_CONFIGURATION_MASK_VALUE << GPIO_PIN_SPAN)
 
 /**
  * @def PIN_RESET_ODR_MASK
@@ -240,7 +240,7 @@ typedef struct
  * @details This mask is used to reset the ODR bit of a certain pin (in the BSRR register)
  * @param[in] GPIO_PIN_SPAN The span of the pin in the configuration register (CRL or CRH)
  */
-#define PIN_RESET_ODR_MASK(GPIO_PIN_SPAN) (~(PIN_RESET_ODR_MASK_VALUE << GPIO_PIN_SPAN))
+#define PIN_RESET_ODR_MASK(GPIO_PIN_SPAN) ~(PIN_RESET_ODR_MASK_VALUE << GPIO_PIN_SPAN)
 
 /** @} */
 /** @} */
