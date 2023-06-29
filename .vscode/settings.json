@@ -1,6 +1,5 @@
 {
 	"files.associations": {
-		"*.embeddedhtml": "html",
 		"apps_main.h": "c",
 		"lstd_hw_regs.h": "c",
 		"lstd_types.h": "c",
@@ -8,6 +7,9 @@
 		"rcc_private.h": "c",
 		"lstd_values.h": "c",
 		"rcc_config.h": "c",
-		"rcc_interface.h": "c"
+		"rcc_interface.h": "c",
+		"gpio_interface.h": "c",
+		"gpio_config.h": "c",
+		"gpio_private.h": "c"
 	}
 }

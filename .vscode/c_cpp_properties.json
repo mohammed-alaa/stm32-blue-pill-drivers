@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "name": "STM32 Blue Pill",
+            "includePath": [
+                "${workspaceRoot}/**"
+            ],
+            "defines": [],
+            "compilerPath": "${env:ARM_GCC_TOOLS_DIR}\\arm-gnu-toolchain\\bin\\arm-none-eabi-gcc.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-arm",
+            "compilerArgs": [
+                "-mcpu=cortex-m3",
+                "-mthumb"
+            ]
+        }
+    ],
+    "version": 4
+
+}
