@@ -17,14 +17,16 @@ void vTestApp_TestingGPIO_main(void)
 	// t_u32 u32Counter = 0;
 	RCC_vEnablePeripheralABP2(RCC_APB2Peripherals_PORTA);
 	RCC_vEnablePeripheralABP2(RCC_APB2Peripherals_PORTB);
-	GPIO_vSetPinDirection(GPIO_Ports_A, GPIO_Pins_1, GPIO_Direction_Output_10MHz);
+	GPIO_vSetPinDirection(GPIO_Ports_A, GPIO_Pins_1, GPIO_Direction_Output_50MHz);
 	GPIO_vSetPinDirection(GPIO_Ports_B, GPIO_Pins_7, GPIO_Direction_Input);
 	GPIO_vSetPinInputType(GPIO_Ports_B, GPIO_Pins_7, GPIO_Input_Type_Pull_Down);
 	// GPIO_vSetPinInputType(GPIO_Ports_B, GPIO_Pins_7, GPIO_Input_Type_Pull_Up);
 
 	for (;;)
 	{
-		if (GPIO_tGetPinValue(GPIO_Ports_B, GPIO_Pins_7) == GPIO_Value_High)
+		// GPIO_vSetPinValue(GPIO_Ports_A, GPIO_Pins_1, GPIO_tGetPinValue(GPIO_Ports_B, GPIO_Pins_7));
+		// if (GPIO_tGetPinValue(GPIO_Ports_B, GPIO_Pins_7) == GPIO_Value_High)
+		if (GPIO_tGetPinValue(GPIO_Ports_B, GPIO_Pins_7) == GPIO_Value_Low)
 		{
 			GPIO_vSetPinValue(GPIO_Ports_A, GPIO_Pins_1, GPIO_Value_High);
 		}
