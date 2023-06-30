@@ -10,6 +10,7 @@
 		"rcc_interface.h": "c",
 		"gpio_interface.h": "c",
 		"gpio_config.h": "c",
-		"gpio_private.h": "c"
+		"gpio_private.h": "c",
+		"testapp_testinggpio_main.h": "c"
 	}
 }
