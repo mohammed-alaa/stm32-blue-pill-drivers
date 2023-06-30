@@ -69,10 +69,6 @@ typedef struct
 	 * @brief Port Bit Reset Register
 	 */
 	t_u32 BRR;
-	/**
-	 * @brief Port Lock Register
-	 */
-	// t_u32 LCKR;
 } t_GPIOx_RegisterMap;
 
 /** @} */
