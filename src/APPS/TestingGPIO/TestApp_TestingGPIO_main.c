@@ -19,21 +19,21 @@ void vTestApp_TestingGPIO_main(void)
 	RCC_vEnablePeripheralABP2(RCC_APB2Peripherals_PORTB);
 	GPIO_vSetPinDirection(GPIO_Ports_A, GPIO_Pins_1, GPIO_Direction_Output_50MHz);
 	GPIO_vSetPinDirection(GPIO_Ports_B, GPIO_Pins_7, GPIO_Direction_Input);
-	GPIO_vSetPinInputType(GPIO_Ports_B, GPIO_Pins_7, GPIO_Input_Type_Pull_Down);
-	// GPIO_vSetPinInputType(GPIO_Ports_B, GPIO_Pins_7, GPIO_Input_Type_Pull_Up);
+	// GPIO_vSetPinInputType(GPIO_Ports_B, GPIO_Pins_7, GPIO_Input_Type_Pull_Down);
+	GPIO_vSetPinInputType(GPIO_Ports_B, GPIO_Pins_7, GPIO_Input_Type_Pull_Up);
 
 	for (;;)
 	{
-		// GPIO_vSetPinValue(GPIO_Ports_A, GPIO_Pins_1, GPIO_tGetPinValue(GPIO_Ports_B, GPIO_Pins_7));
+		GPIO_vSetPinValue(GPIO_Ports_A, GPIO_Pins_1, GPIO_tGetPinValue(GPIO_Ports_B, GPIO_Pins_7));
 		// if (GPIO_tGetPinValue(GPIO_Ports_B, GPIO_Pins_7) == GPIO_Value_High)
-		if (GPIO_tGetPinValue(GPIO_Ports_B, GPIO_Pins_7) == GPIO_Value_Low)
-		{
-			GPIO_vSetPinValue(GPIO_Ports_A, GPIO_Pins_1, GPIO_Value_High);
-		}
-		else
-		{
-			GPIO_vSetPinValue(GPIO_Ports_A, GPIO_Pins_1, GPIO_Value_Low);
-		}
+		// if (GPIO_tGetPinValue(GPIO_Ports_B, GPIO_Pins_7) == GPIO_Value_Low)
+		// {
+			// GPIO_vSetPinValue(GPIO_Ports_A, GPIO_Pins_1, GPIO_Value_High);
+		// }
+		// else
+		// {
+			// GPIO_vSetPinValue(GPIO_Ports_A, GPIO_Pins_1, GPIO_Value_Low);
+		// }
 
 		// GPIO_vSetPinValue(GPIO_Ports_A, GPIO_Pins_1, GPIO_Value_High);
 		// for (u32Counter = 0; u32Counter < 10000000; u32Counter++)
