@@ -27,7 +27,7 @@
  * @brief The default input type for the GPIO pins
  * @details This macro defines the default input type for the GPIO pins
  */
-#define DEFAULT_PIN_INPUT_TYPE (GPIO_Input_Type_Floating)
+#define DEFAULT_PIN_INPUT_TYPE (GPIO_Input_Type_Pull_Down)
 
 /**
  * @def DEFAULT_PIN_OUTPUT_TYPE
