@@ -2,5 +2,12 @@
 	"files.associations": {
 		"*.embeddedhtml": "html",
 		"apps_main.h": "c",
+		"lstd_hw_regs.h": "c",
+		"lstd_types.h": "c",
+		"lstd_compiler.h": "c",
+		"rcc_private.h": "c",
+		"lstd_values.h": "c",
+		"rcc_config.h": "c",
+		"rcc_interface.h": "c"
 	}
 }
