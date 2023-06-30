@@ -7,14 +7,26 @@
  */
 
 #include "APPS_main.h"
+#include "../COTS/MCAL/RCC/RCC_interface.h"
 
 /**
- * @brief Change this to the macro of the desired application to run
+ * @brief This macro is used to define the main function of the application
+ * @details This macro is used to define the main function of the application
+ * @param[in] APP_NAME The name of the application
  **/
-// #define
+#define TESTING_APPLICATION_MAIN_FUNC(APP_NAME) vTestApp_##APP_NAME##_main()
+
+#define TestingGPIO
+
+#if defined TestingGPIO
+#include "TestingGPIO/TestApp_TestingGPIO_main.h"
+#endif
 
 void vAPPS_main(void)
 {
+	RCC_vInit();
+	TESTING_APPLICATION_MAIN_FUNC(TestingGPIO);
+
 	for (;;)
 	{
 		/* Do nothing */
