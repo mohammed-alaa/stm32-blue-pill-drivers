@@ -12,5 +12,8 @@
 		"gpio_config.h": "c",
 		"gpio_private.h": "c",
 		"testapp_testinggpio_main.h": "c"
-	}
+	},
+	"cortex-debug.variableUseNaturalFormat": true,
+	"cortex-debug.openocdPath.windows": "${env:ARM_GCC_TOOLS_DIR}\\xpack-openocd-0.12.0-1\\bin\\openocd.exe",
+	"cortex-debug.armToolchainPath.windows": "${env:ARM_GCC_TOOLS_DIR}\\arm-gnu-toolchain\\bin"
 }
