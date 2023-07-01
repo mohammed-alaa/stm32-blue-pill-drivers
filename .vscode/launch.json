@@ -18,11 +18,6 @@
 				"board/stm32f103c8_blue_pill.cfg"
 			],
 			"svdFile": "${workspaceFolder}/STM32F103.svd",
-			"showDevDebugOutput": "raw",
-			"liveWatch": {
-				"enabled": true,
-				"samplesPerSecond": 4
-			},
 			"postLaunchCommands": ["set output-radix 16"]
         }
     ]
