@@ -74,6 +74,134 @@ typedef struct
 /** @} */
 
 /**
+ * @defgroup afio_registers AFIO Registers
+ * @brief AFIO Registers
+ * @{
+ */
+
+/**
+ * @struct t_EVCR
+ * @brief Event Control Register
+ * @details This type is used to access the EVCR register
+ */
+typedef struct
+{
+	/**
+	 * @brief Pin selection
+	 * @details This field specifies the pin to be used as the Event Output.
+	 */
+	t_u32 PIN : 4;
+	/**
+	 * @brief Port selection
+	 * @details This field specifies the port to be used as the Event Output.
+	 */
+	t_u32 PORT : 3;
+	/**
+	 * @brief Event Output Enable
+	 * @details This bit enables the Event Output.
+	 */
+	t_u32 EVOE : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 24;
+} t_EVCR;
+
+/**
+ * @struct t_MAPR
+ * @brief AF remap and debug I/O configuration register
+ * @details This type is used to access the MAPR register
+ */
+typedef struct
+{
+	/**
+	 * @brief SPI1 remapping
+	 * @details This bit controls the mapping of SPI1 (NSS, SCK, MISO and MOSI) alternate functions on the GPIO ports
+	 */
+	t_u32 SPI1_REMAP : 1;
+	/**
+	 * @brief I2C1 remapping
+	 * @details This bit controls the mapping of I2C1 (SDA and SCL) alternate functions on the GPIO ports
+	 */
+	t_u32 I2C1_REMAP : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 3;
+	/**
+	 * @brief TIM1 remapping
+	 * @details These bits control the mapping of TIM1 alternate functions on the GPIO ports
+	 */
+	t_u32 TIM1_REMAP : 2;
+	/**
+	 * @brief TIM2 remapping
+	 * @details These bits control the mapping of TIM2 alternate functions on the GPIO ports
+	 */
+	t_u32 TIM2_REMAP : 2;
+	/**
+	 * @brief TIM3 remapping
+	 * @details These bits control the mapping of TIM3 alternate functions on the GPIO ports
+	 */
+	t_u32 TIM3_REMAP : 2;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 1;
+	/**
+	 * @brief CAN remapping
+	 * @details These bits control the mapping of CAN alternate functions on the GPIO ports
+	 */
+	t_u32 CAN_REMAP : 2;
+	/**
+	 * @brief Port D0/Port D1 mapping on OSCIN/OSCOUT
+	 * @details These bits control the mapping of PD0 and PD1 alternate functions on the OSCIN and OSCOUT pins
+	 */
+	t_u32 PD01_REMAP : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 8;
+	/**
+	 * @brief Serial wire JTAG configuration
+	 * @details This bit controls the mapping of the JTAG pins (PA15, PB3, PB4 and PB5) on the GPIO ports
+	 * @warning This field is write-only
+	 */
+	t_u32 SWJ_CFG : 3;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 5;
+} t_MAPR;
+
+/**
+ * @struct t_AFIOx_RegisterMap
+ * @brief AFIO Register Map
+ * @details This type is used to access the AFIO registers
+ */
+typedef struct
+{
+	/**
+	 * @brief Event Control Register
+	 */
+	t_EVCR EVCR;
+	/**
+	 * @brief Remap and debug I/O configuration register
+	 */
+	t_MAPR MAPR;
+	/**
+	 * @brief External interrupt configuration register 1
+	 */
+	t_u32 EXTICR[4];
+} t_AFIOx_RegisterMap;
+
+/** @} */
+
+/**
  * @defgroup gpio_addresses GPIO Addresses
  * @brief GPIO Addresses
  * @details This module contains the addresses of the GPIO registers
@@ -165,6 +293,28 @@ typedef struct
 #define GPIO_G REGISTER(t_GPIOx_RegisterMap, BASE_ADDRESS_PORT_G)
 
 /** @} */
+
+/**
+ * @defgroup afio_addresses AFIO Addresses
+ * @brief AFIO Addresses
+ * @details This module contains the addresses of the AFIO registers
+ * @{
+ */
+
+/**
+ * @def BASE_ADDRESS_AFIO
+ * @brief Base Address of AFIO
+ */
+#define BASE_ADDRESS_AFIO REGISTER_ADDRESS(0x40010000, 0)
+
+/**
+ * @def AFIO
+ * @brief AFIO (Alternate Function I/O)
+ */
+#define AFIO REGISTER(t_AFIOx_RegisterMap, BASE_ADDRESS_AFIO)
+
+/** @} */
+
 /**
  * @defgroup gpio_pins_constants GPIO Pins Constants
  * @brief GPIO Pins Constants
