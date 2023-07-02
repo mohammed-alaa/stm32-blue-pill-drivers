@@ -207,3 +207,23 @@ t_GPIO_Value GPIO_tGetPinValue(t_GPIO_Ports tPort, t_GPIO_Pins tPin)
 	/* Get the value of the pin */
 	return (t_GPIO_Value)((pu32PortBaseAddress->IDR >> tPin) & TRUE);
 }
+
+void GPIO_AFIO_vInitCortexEvent(t_GPIO_Ports tPort, t_GPIO_Pins tPin)
+{
+	AFIO.EVCR.PORT = tPort;
+	AFIO.EVCR.PIN = tPin;
+	AFIO.EVCR.EVOE = FALSE;
+}
+
+void GPIO_AFIO_vConfigEXTILine(t_GPIO_Ports tPort, t_GPIO_Pins tPin)
+{
+	/* Get the index of the target EXTI line */
+	t_u32 u32EXTILineTargetIndex = (t_u32)(tPin / PIN_SHIFT_VALUE);
+
+	/* Store the address of the target EXTI line */
+	P2VAR(VOLATILE t_u32)
+	pu32TargetExtiLine = &AFIO.EXTICR[u32EXTILineTargetIndex];
+
+	/* Set the target EXTI line */
+	*pu32TargetExtiLine = (*pu32TargetExtiLine & PIN_RESET_MASK(u32EXTILineTargetIndex)) | (t_u32)(TRUE << tPort);
+}

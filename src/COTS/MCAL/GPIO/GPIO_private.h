@@ -325,7 +325,7 @@ typedef struct
 /**
  * @def PIN_SHIFT_VALUE
  * @brief Pin Shift Value
- * @details This value is used to shift to the start of a specific pin in the configuration register (CRL or CRH)
+ * @details This value is used to shift to the start of a specific pin in the configuration register (CRL or CRH) and the AFIO EXTI line registers (EXTICR1 to EXTICR4)
  */
 #define PIN_SHIFT_VALUE (4)
 
@@ -368,7 +368,7 @@ typedef struct
  * @def PIN_RESET_MASK
  * @brief Pin Reset Mask
  * @details This mask is used to reset the mode and configuration bits of a certain pin
- * @param[in] GPIO_PIN_SPAN The span of the pin in the configuration register (CRL or CRH)
+ * @param[in] GPIO_PIN_SPAN The span of the pin in the configuration register (CRL or CRH) and the AFIO EXTI line registers (EXTICR1 to EXTICR4)
  */
 #define PIN_RESET_MASK(GPIO_PIN_SPAN) ~(PIN_RESET_MASK_VALUE << GPIO_PIN_SPAN)
 

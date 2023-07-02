@@ -272,6 +272,24 @@ void GPIO_vSetPinValue(t_GPIO_Ports tPort, t_GPIO_Pins tPin, t_GPIO_Value tValue
  */
 t_GPIO_Value GPIO_tGetPinValue(t_GPIO_Ports tPort, t_GPIO_Pins tPin);
 
+/**
+ * @brief This function is used to initialize the cortex event for a GPIO pin
+ * @details This function is used to initialize the cortex event for a GPIO pin
+ * @param[in] tPort The GPIO port
+ * @param[in] tPin The GPIO pin
+ * @see t_GPIO_Ports t_GPIO_Pins
+ */
+void GPIO_AFIO_vInitCortexEvent(t_GPIO_Ports tPort, t_GPIO_Pins tPin);
+
+/**
+ * @brief This function is used to configure the EXTI line for a GPIO pin
+ * @details This function is used to configure the EXTI line for a GPIO pin
+ * @param[in] tPort The GPIO port
+ * @param[in] tPin The GPIO pin
+ * @see t_GPIO_Ports t_GPIO_Pins
+ */
+void GPIO_AFIO_vConfigEXTILine(t_GPIO_Ports tPort, t_GPIO_Pins tPin);
+
 /** @} */
 /** @} */
 #endif /* _GPIO_INTERFACE_H_ */
