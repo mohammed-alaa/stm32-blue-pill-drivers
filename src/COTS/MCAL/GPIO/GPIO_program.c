@@ -227,3 +227,43 @@ void GPIO_AFIO_vConfigEXTILine(t_GPIO_Ports tPort, t_GPIO_Pins tPin)
 	/* Set the target EXTI line */
 	*pu32TargetExtiLine = (*pu32TargetExtiLine & PIN_RESET_MASK(u32EXTILineTargetIndex)) | (t_u32)(TRUE << tPort);
 }
+
+void GPIO_AFIO_vRemapSPI1(t_bool bRemap)
+{
+	AFIO.MAPR.SPI1_REMAP = bRemap;
+}
+
+void GPIO_AFIO_vRemapI2C1(t_bool bRemap)
+{
+	AFIO.MAPR.I2C1_REMAP = bRemap;
+}
+
+void GPIO_AFIO_vRemapTimer1(t_bool bRemap)
+{
+	AFIO.MAPR.TIM1_REMAP = bRemap;
+}
+
+void GPIO_AFIO_vRemapTimer2(t_AFIO_Timer2_Remap tTimer2Remap)
+{
+	AFIO.MAPR.TIM2_REMAP = tTimer2Remap;
+}
+
+void GPIO_AFIO_vRemapTimer3(t_bool bRemap)
+{
+	AFIO.MAPR.TIM3_REMAP = (bRemap == TRUE) ? 0x10 : FALSE;
+}
+
+void GPIO_AFIO_vRemapCan(t_bool bRemap)
+{
+	AFIO.MAPR.CAN_REMAP = (bRemap == TRUE) ? 0x10 : FALSE;
+}
+
+void GPIO_AFIO_vRemapPD01(t_bool bRemap)
+{
+	AFIO.MAPR.PD01_REMAP = bRemap;
+}
+
+void GPIO_AFIO_vRemapSWJ(t_AFIO_SWJ_Remap tSWJRemap)
+{
+	AFIO.MAPR.SWJ_CFG = tSWJRemap;
+}
