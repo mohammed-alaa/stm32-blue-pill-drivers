@@ -109,73 +109,53 @@ typedef struct
 } t_EVCR;
 
 /**
- * @struct t_MAPR
- * @brief AF remap and debug I/O configuration register
- * @details This type is used to access the MAPR register
+ * @enum t_MAPR
+ * @brief Remap and debug I/O configuration register
+ * @details This type is used to hold the bit fields of the MAPR register
  */
-typedef struct
+typedef enum
 {
 	/**
 	 * @brief SPI1 remapping
 	 * @details This bit controls the mapping of SPI1 (NSS, SCK, MISO and MOSI) alternate functions on the GPIO ports
 	 */
-	t_u32 SPI1_REMAP : 1;
+	t_MAPR_SPI1_REMAP = 0,
 	/**
 	 * @brief I2C1 remapping
 	 * @details This bit controls the mapping of I2C1 (SDA and SCL) alternate functions on the GPIO ports
 	 */
-	t_u32 I2C1_REMAP : 1;
-	/**
-	 * @brief Reserved bit(s)
-	 * @attention This field is reserved and must be kept at reset value.
-	 */
-	t_u32 : 3;
+	t_MAPR_I2C1_REMAP,
 	/**
 	 * @brief TIM1 remapping
 	 * @details These bits control the mapping of TIM1 alternate functions on the GPIO ports
 	 */
-	t_u32 TIM1_REMAP : 2;
+	t_MAPR_TIM1_REMAP = 6,
 	/**
 	 * @brief TIM2 remapping
 	 * @details These bits control the mapping of TIM2 alternate functions on the GPIO ports
 	 */
-	t_u32 TIM2_REMAP : 2;
+	t_MAPR_TIM2_REMAP = 8,
 	/**
 	 * @brief TIM3 remapping
 	 * @details These bits control the mapping of TIM3 alternate functions on the GPIO ports
 	 */
-	t_u32 TIM3_REMAP : 2;
-	/**
-	 * @brief Reserved bit(s)
-	 * @attention This field is reserved and must be kept at reset value.
-	 */
-	t_u32 : 1;
+	t_MAPR_TIM3_REMAP = 10,
 	/**
 	 * @brief CAN remapping
 	 * @details These bits control the mapping of CAN alternate functions on the GPIO ports
 	 */
-	t_u32 CAN_REMAP : 2;
+	t_MAPR_CAN_REMAP = 13,
 	/**
 	 * @brief Port D0/Port D1 mapping on OSCIN/OSCOUT
 	 * @details These bits control the mapping of PD0 and PD1 alternate functions on the OSCIN and OSCOUT pins
 	 */
-	t_u32 PD01_REMAP : 1;
-	/**
-	 * @brief Reserved bit(s)
-	 * @attention This field is reserved and must be kept at reset value.
-	 */
-	t_u32 : 8;
+	t_MAPR_PD01_REMAP = 15,
 	/**
 	 * @brief Serial wire JTAG configuration
 	 * @details This bit controls the mapping of the JTAG pins (PA15, PB3, PB4 and PB5) on the GPIO ports
 	 * @warning This field is write-only
 	 */
-	t_u32 SWJ_CFG : 3;
-	/**
-	 * @brief Reserved bit(s)
-	 * @attention This field is reserved and must be kept at reset value.
-	 */
-	t_u32 : 5;
+	t_MAPR_SWJ_CFG = 24
 } t_MAPR;
 
 /**
@@ -192,7 +172,7 @@ typedef struct
 	/**
 	 * @brief Remap and debug I/O configuration register
 	 */
-	t_MAPR MAPR;
+	t_u32 MAPR;
 	/**
 	 * @brief External interrupt configuration register 1
 	 */
