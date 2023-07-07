@@ -18,8 +18,6 @@
 
 #include "../../LIB/LSTD_HW_REGS.h"
 #include "../../LIB/LSTD_TYPES.h"
-#include "../../LIB/LSTD_VALUES.h"
-#include "../../LIB/LSTD_SHARED.h"
 
 /**
  * @addtogroup mcal
