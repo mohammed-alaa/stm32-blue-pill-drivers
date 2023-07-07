@@ -11,7 +11,8 @@
 		"gpio_interface.h": "c",
 		"gpio_config.h": "c",
 		"gpio_private.h": "c",
-		"testapp_testinggpio_main.h": "c"
+		"testapp_testinggpio_main.h": "c",
+		"lstd_shared.h": "c"
 	},
 	"cortex-debug.variableUseNaturalFormat": true,
 	"cortex-debug.openocdPath.windows": "${env:ARM_GCC_TOOLS_DIR}\\xpack-openocd-0.12.0-1\\bin\\openocd.exe",
