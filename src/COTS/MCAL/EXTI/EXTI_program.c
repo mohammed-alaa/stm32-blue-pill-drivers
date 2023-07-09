@@ -14,9 +14,6 @@
 #include "EXTI_interface.h"
 #include "EXTI_config.h"
 
-STATIC P2FUNC(void, spfEXTIInterruptCallback[EXTI_Lines_Number])(void) = {NULL};
-STATIC P2FUNC(void, spfEXTIEventCallback[EXTI_Lines_Number])(void) = {NULL};
-
 /**
  * @brief This function sets the interrupt status of a certain line.
  * @details This function sets the interrupt status of a certain line.
@@ -93,30 +90,26 @@ STATIC void EXTI_vSetLineTriggerModeFalling(t_EXTI_Lines tLine, t_bool bStatus)
 	}
 }
 
-void EXTI_vEnableLineInterrupt(t_EXTI_Lines tLine, t_EXTI_TriggerMode tMode, P2FUNC(void, pfEXTICallback)(void))
+void EXTI_vEnableLineInterrupt(t_EXTI_Lines tLine, t_EXTI_TriggerMode tMode)
 {
-	spfEXTIInterruptCallback[tLine] = pfEXTICallback;
 	EXTI_vSetLineInterruptStatus(tLine, TRUE);
 	EXTI_vSetLineTriggerMode(tLine, tMode);
 }
 
 void EXTI_vDisableLineInterrupt(t_EXTI_Lines tLine)
 {
-	spfEXTIInterruptCallback[tLine] = NULL;
 	EXTI_vSetLineInterruptStatus(tLine, FALSE);
 	EXTI_vSetLineTriggerMode(tLine, EXTI_TriggerMode_None);
 }
 
-void EXTI_vEnableLineEvent(t_EXTI_Lines tLine, t_EXTI_TriggerMode tMode, P2FUNC(void, pfEXTICallback)(void))
+void EXTI_vEnableLineEvent(t_EXTI_Lines tLine, t_EXTI_TriggerMode tMode)
 {
-	spfEXTIEventCallback[tLine] = pfEXTICallback;
 	EXTI_vSetLineEventStatus(tLine, TRUE);
 	EXTI_vSetLineTriggerMode(tLine, tMode);
 }
 
 void EXTI_vDisableLineEvent(t_EXTI_Lines tLine)
 {
-	spfEXTIEventCallback[tLine] = NULL;
 	EXTI_vSetLineEventStatus(tLine, FALSE);
 	EXTI_vSetLineTriggerMode(tLine, EXTI_TriggerMode_None);
 }
@@ -159,15 +152,3 @@ void EXTI_vClearLinePendingStatus(t_EXTI_Lines tLine)
 {
 	SET_BIT(EXTI.PR, tLine);
 }
-
-// void EXTI0_IRQHandler(void)
-// {
-// 	if (spfEXTIInterruptCallback[EXTI_Lines_0] != NULL)
-// 	{
-// 		spfEXTIInterruptCallback[EXTI_Lines_0]();
-// 	}
-// 	else
-// 	{
-// 		/* Do nothing. */
-// 	}
-// }

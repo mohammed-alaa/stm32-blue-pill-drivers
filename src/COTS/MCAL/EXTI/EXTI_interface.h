@@ -146,10 +146,9 @@ typedef enum
  *
  * @param[in] tLine The line to enable its interrupt.
  * @param[in] tMode The mode to set the line to.
- * @param[in] pfEXTICallback The callback function to be called when the interrupt occurs.
  * @see t_EXTI_Lines t_EXTI_TriggerMode
  */
-void EXTI_vEnableLineInterrupt(t_EXTI_Lines tLine, t_EXTI_TriggerMode tMode, P2FUNC(void, pfEXTICallback)(void));
+void EXTI_vEnableLineInterrupt(t_EXTI_Lines tLine, t_EXTI_TriggerMode tMode);
 
 /**
  * @brief This function disables the interrupt of a certain line.
@@ -166,10 +165,9 @@ void EXTI_vDisableLineInterrupt(t_EXTI_Lines tLine);
  *
  * @param[in] tLine The line to enable its event.
  * @param[in] tMode The mode to set the line to.
- * @param[in] pfEXTICallback The callback function to be called when the event occurs.
  * @see t_EXTI_Lines t_EXTI_TriggerMode
  */
-void EXTI_vEnableLineEvent(t_EXTI_Lines tLine, t_EXTI_TriggerMode tMode, P2FUNC(void, pfEXTICallback)(void));
+void EXTI_vEnableLineEvent(t_EXTI_Lines tLine, t_EXTI_TriggerMode tMode);
 
 /**
  * @brief This function disables the event of a certain line.
