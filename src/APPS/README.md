@@ -30,3 +30,9 @@ Name: TestingGPIO
 Description: This application tests the GPIO driver.
 Activision Macro: TestingGPIO
 ```
+
+```
+Name: TestingEXTI
+Description: This application tests the EXTI driver.
+Activision Macro: TestingEXTI
+```
