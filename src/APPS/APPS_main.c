@@ -16,16 +16,18 @@
  **/
 #define TESTING_APPLICATION_MAIN_FUNC(APP_NAME) vTestApp_##APP_NAME##_main()
 
-#define TestingGPIO
+#define TestingEXTI
 
 #if defined TestingGPIO
 #include "TestingGPIO/TestApp_TestingGPIO_main.h"
+#elif defined TestingEXTI
+#include "TestingEXTI/TestApp_TestingEXTI_main.h"
 #endif
 
 void vAPPS_main(void)
 {
 	RCC_vInit();
-	TESTING_APPLICATION_MAIN_FUNC(TestingGPIO);
+	TESTING_APPLICATION_MAIN_FUNC(TestingEXTI);
 
 	for (;;)
 	{
