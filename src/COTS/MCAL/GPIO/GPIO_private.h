@@ -74,6 +74,114 @@ typedef struct
 /** @} */
 
 /**
+ * @defgroup afio_registers AFIO Registers
+ * @brief AFIO Registers
+ * @{
+ */
+
+/**
+ * @struct t_EVCR
+ * @brief Event Control Register
+ * @details This type is used to access the EVCR register
+ */
+typedef struct
+{
+	/**
+	 * @brief Pin selection
+	 * @details This field specifies the pin to be used as the Event Output.
+	 */
+	t_u32 PIN : 4;
+	/**
+	 * @brief Port selection
+	 * @details This field specifies the port to be used as the Event Output.
+	 */
+	t_u32 PORT : 3;
+	/**
+	 * @brief Event Output Enable
+	 * @details This bit enables the Event Output.
+	 */
+	t_u32 EVOE : 1;
+	/**
+	 * @brief Reserved bit(s)
+	 * @attention This field is reserved and must be kept at reset value.
+	 */
+	t_u32 : 24;
+} t_EVCR;
+
+/**
+ * @enum t_MAPR
+ * @brief Remap and debug I/O configuration register
+ * @details This type is used to hold the bit fields of the MAPR register
+ */
+typedef enum
+{
+	/**
+	 * @brief SPI1 remapping
+	 * @details This bit controls the mapping of SPI1 (NSS, SCK, MISO and MOSI) alternate functions on the GPIO ports
+	 */
+	t_MAPR_SPI1_REMAP = 0,
+	/**
+	 * @brief I2C1 remapping
+	 * @details This bit controls the mapping of I2C1 (SDA and SCL) alternate functions on the GPIO ports
+	 */
+	t_MAPR_I2C1_REMAP,
+	/**
+	 * @brief TIM1 remapping
+	 * @details These bits control the mapping of TIM1 alternate functions on the GPIO ports
+	 */
+	t_MAPR_TIM1_REMAP = 6,
+	/**
+	 * @brief TIM2 remapping
+	 * @details These bits control the mapping of TIM2 alternate functions on the GPIO ports
+	 */
+	t_MAPR_TIM2_REMAP = 8,
+	/**
+	 * @brief TIM3 remapping
+	 * @details These bits control the mapping of TIM3 alternate functions on the GPIO ports
+	 */
+	t_MAPR_TIM3_REMAP = 10,
+	/**
+	 * @brief CAN remapping
+	 * @details These bits control the mapping of CAN alternate functions on the GPIO ports
+	 */
+	t_MAPR_CAN_REMAP = 13,
+	/**
+	 * @brief Port D0/Port D1 mapping on OSCIN/OSCOUT
+	 * @details These bits control the mapping of PD0 and PD1 alternate functions on the OSCIN and OSCOUT pins
+	 */
+	t_MAPR_PD01_REMAP = 15,
+	/**
+	 * @brief Serial wire JTAG configuration
+	 * @details This bit controls the mapping of the JTAG pins (PA15, PB3, PB4 and PB5) on the GPIO ports
+	 * @warning This field is write-only
+	 */
+	t_MAPR_SWJ_CFG = 24
+} t_MAPR;
+
+/**
+ * @struct t_AFIOx_RegisterMap
+ * @brief AFIO Register Map
+ * @details This type is used to access the AFIO registers
+ */
+typedef struct
+{
+	/**
+	 * @brief Event Control Register
+	 */
+	t_EVCR EVCR;
+	/**
+	 * @brief Remap and debug I/O configuration register
+	 */
+	t_u32 MAPR;
+	/**
+	 * @brief External interrupt configuration register 1
+	 */
+	t_u32 EXTICR[4];
+} t_AFIOx_RegisterMap;
+
+/** @} */
+
+/**
  * @defgroup gpio_addresses GPIO Addresses
  * @brief GPIO Addresses
  * @details This module contains the addresses of the GPIO registers
@@ -165,6 +273,28 @@ typedef struct
 #define GPIO_G REGISTER(t_GPIOx_RegisterMap, BASE_ADDRESS_PORT_G)
 
 /** @} */
+
+/**
+ * @defgroup afio_addresses AFIO Addresses
+ * @brief AFIO Addresses
+ * @details This module contains the addresses of the AFIO registers
+ * @{
+ */
+
+/**
+ * @def BASE_ADDRESS_AFIO
+ * @brief Base Address of AFIO
+ */
+#define BASE_ADDRESS_AFIO REGISTER_ADDRESS(0x40010000, 0)
+
+/**
+ * @def AFIO
+ * @brief AFIO (Alternate Function I/O)
+ */
+#define AFIO REGISTER(t_AFIOx_RegisterMap, BASE_ADDRESS_AFIO)
+
+/** @} */
+
 /**
  * @defgroup gpio_pins_constants GPIO Pins Constants
  * @brief GPIO Pins Constants
@@ -175,7 +305,7 @@ typedef struct
 /**
  * @def PIN_SHIFT_VALUE
  * @brief Pin Shift Value
- * @details This value is used to shift to the start of a specific pin in the configuration register (CRL or CRH)
+ * @details This value is used to shift to the start of a specific pin in the configuration register (CRL or CRH) and the AFIO EXTI line registers (EXTICR1 to EXTICR4)
  */
 #define PIN_SHIFT_VALUE (4)
 
@@ -218,7 +348,7 @@ typedef struct
  * @def PIN_RESET_MASK
  * @brief Pin Reset Mask
  * @details This mask is used to reset the mode and configuration bits of a certain pin
- * @param[in] GPIO_PIN_SPAN The span of the pin in the configuration register (CRL or CRH)
+ * @param[in] GPIO_PIN_SPAN The span of the pin in the configuration register (CRL or CRH) and the AFIO EXTI line registers (EXTICR1 to EXTICR4)
  */
 #define PIN_RESET_MASK(GPIO_PIN_SPAN) ~(PIN_RESET_MASK_VALUE << GPIO_PIN_SPAN)
 
