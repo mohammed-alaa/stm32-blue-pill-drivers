@@ -100,6 +100,42 @@ STATIC void GPIO_vSetPinInputTypePullUpDown(P2VAR(t_GPIOx_RegisterMap) pu32PortB
 	}
 }
 
+/**
+ * @brief Get the reset value for a certain AFIO field
+ * @details This function is used to get the reset value for a certain AFIO field
+ * @param[in] tMAPR The AFIO field to get its reset value
+ * @return t_u32 The reset value for the AFIO field
+ * @see t_MAPR
+ */
+STATIC t_u32 GPIO_AFIO_vGetAFIOFieldResetValue(t_MAPR tMAPR)
+{
+	/* Store the reset value of the AFIO register */
+	t_u32 u32AFIOFieldResetValue = 0;
+
+	switch (tMAPR)
+	{
+	case t_MAPR_SPI1_REMAP:
+	case t_MAPR_I2C1_REMAP:
+	case t_MAPR_CAN_REMAP:
+	case t_MAPR_PD01_REMAP:
+		u32AFIOFieldResetValue = 0x1;
+		break;
+	case t_MAPR_TIM1_REMAP:
+	case t_MAPR_TIM2_REMAP:
+	case t_MAPR_TIM3_REMAP:
+		u32AFIOFieldResetValue = 0x3;
+		break;
+	case t_MAPR_SWJ_CFG:
+		u32AFIOFieldResetValue = 0x7;
+		break;
+	default:
+		/* Do nothing */
+		break;
+	}
+
+	return (AFIO.MAPR & ~u32AFIOFieldResetValue);
+}
+
 void GPIO_vSetPinDirection(t_GPIO_Ports tPort, t_GPIO_Pins tPin, t_GPIO_Direction tDirection)
 {
 	/* Get the pin span (the number of bits to shift to reach the target pin mode and configuration bits) */
@@ -206,4 +242,64 @@ t_GPIO_Value GPIO_tGetPinValue(t_GPIO_Ports tPort, t_GPIO_Pins tPin)
 
 	/* Get the value of the pin */
 	return (t_GPIO_Value)((pu32PortBaseAddress->IDR >> tPin) & TRUE);
+}
+
+void GPIO_AFIO_vInitCortexEvent(t_GPIO_Ports tPort, t_GPIO_Pins tPin)
+{
+	AFIO.EVCR.PORT = tPort;
+	AFIO.EVCR.PIN = tPin;
+	AFIO.EVCR.EVOE = FALSE;
+}
+
+void GPIO_AFIO_vConfigEXTILine(t_GPIO_Ports tPort, t_GPIO_Pins tPin)
+{
+	/* Get the index of the target EXTI line */
+	t_u32 u32EXTILineTargetIndex = (t_u32)(tPin / PIN_SHIFT_VALUE);
+
+	/* Store the address of the target EXTI line */
+	P2VAR(VOLATILE t_u32)
+	pu32TargetExtiLine = &AFIO.EXTICR[u32EXTILineTargetIndex];
+
+	/* Set the target EXTI line */
+	*pu32TargetExtiLine = (*pu32TargetExtiLine & PIN_RESET_MASK(u32EXTILineTargetIndex)) | (t_u32)(TRUE << tPort);
+}
+
+void GPIO_AFIO_vRemapSPI1(t_bool bRemap)
+{
+	AFIO.MAPR = (t_u32)GPIO_AFIO_vGetAFIOFieldResetValue(t_MAPR_SPI1_REMAP) | (bRemap << t_MAPR_SPI1_REMAP);
+}
+
+void GPIO_AFIO_vRemapI2C1(t_bool bRemap)
+{
+	AFIO.MAPR = (t_u32)GPIO_AFIO_vGetAFIOFieldResetValue(t_MAPR_I2C1_REMAP) | (bRemap << t_MAPR_I2C1_REMAP);
+}
+
+void GPIO_AFIO_vRemapTimer1(t_bool bRemap)
+{
+	AFIO.MAPR = GPIO_AFIO_vGetAFIOFieldResetValue(t_MAPR_TIM1_REMAP) | (t_u32)(bRemap << t_MAPR_TIM1_REMAP);
+}
+
+void GPIO_AFIO_vRemapTimer2(t_AFIO_Timer2_Remap tTimer2Remap)
+{
+	AFIO.MAPR = GPIO_AFIO_vGetAFIOFieldResetValue(t_MAPR_TIM2_REMAP) | (t_u32)tTimer2Remap;
+}
+
+void GPIO_AFIO_vRemapTimer3(t_bool bRemap)
+{
+	AFIO.MAPR = GPIO_AFIO_vGetAFIOFieldResetValue(t_MAPR_TIM3_REMAP) | (t_u32)(bRemap << t_MAPR_TIM3_REMAP);
+}
+
+void GPIO_AFIO_vRemapCan(t_bool bRemap)
+{
+	AFIO.MAPR = GPIO_AFIO_vGetAFIOFieldResetValue(t_MAPR_CAN_REMAP) | (t_u32)(bRemap << t_MAPR_CAN_REMAP);
+}
+
+void GPIO_AFIO_vRemapPD01(t_bool bRemap)
+{
+	AFIO.MAPR = GPIO_AFIO_vGetAFIOFieldResetValue(t_MAPR_PD01_REMAP) | (t_u32)(bRemap << t_MAPR_PD01_REMAP);
+}
+
+void GPIO_AFIO_vRemapSWJ(t_AFIO_SWJ_Remap tSWJRemap)
+{
+	AFIO.MAPR = GPIO_AFIO_vGetAFIOFieldResetValue(t_MAPR_SWJ_CFG) | (t_u32)tSWJRemap;
 }

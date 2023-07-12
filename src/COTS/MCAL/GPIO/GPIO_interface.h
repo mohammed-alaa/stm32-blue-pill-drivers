@@ -10,6 +10,8 @@
 #ifndef _GPIO_INTERFACE_H_
 #define _GPIO_INTERFACE_H_
 
+#include "../../LIB/LSTD_TYPES.h"
+
 /**
  * @addtogroup mcal
  * @{
@@ -223,6 +225,55 @@ typedef enum
 } t_GPIO_Value;
 
 /**
+ * @enum t_AFIO_Timer2_Remap
+ * @brief Enumeration to hold the possible remap configurations of timer 2
+ * @details The enumeration holds the possible remap configurations of timer 2
+ */
+typedef enum
+{
+	/**
+	 * @brief No remap (CH1/ETR/PA0, CH2/PA1, CH3/PA2, CH4/PA3)
+	 */
+	AFIO_Timer2_Remap_None = 0,
+	/**
+	 * @brief Partial remap 1 (CH1/ETR/PA15, CH2/PB3, CH3/PA2, CH4/PA3)
+	 */
+	AFIO_Timer2_Remap_Partial1,
+	/**
+	 * @brief Partial remap 2 (CH1/ETR/PA0, CH2/PA1, CH3/PB10, CH4/PB11)
+	 */
+	AFIO_Timer2_Remap_Partial2,
+	/**
+	 * @brief Full remap (CH1/ETR/PA15, CH2/PB3, CH3/PB10, CH4/PB11)
+	 */
+	AFIO_Timer2_Remap_Full
+} t_AFIO_Timer2_Remap;
+
+/**
+ * @enum t_AFIO_SWJ_Remap
+ * @brief Enumeration to hold the possible remapping options for the SWJ pins
+ */
+typedef enum
+{
+	/**
+	 * @brief Full SWJ (JTAG-DP + SW-DP): Reset State
+	 */
+	AFIO_SWJ_Remap_JTAG_DP_SW_DP_Reset_State = 0,
+	/**
+	 * @brief Full SWJ (JTAG-DP + SW-DP) but without NJTRST
+	 */
+	AFIO_SWJ_Remap_JTAG_DP_SW_DP_But_Without_NJTRST,
+	/**
+	 * @brief JTAG-DP Disabled and SW-DP Enabled
+	 */
+	AFIO_SWJ_Remap_JTAG_DP_Disabled_SW_DP_Enabled,
+	/**
+	 * @brief JTAG-DP Disabled and SW-DP Disabled
+	 */
+	AFIO_SWJ_Remap_JTAG_DP_Disabled_SW_DP_Disabled
+} t_AFIO_SWJ_Remap;
+
+/**
  * @brief This function is used to set the direction of a GPIO pin
  * @details This function is used to set the direction of a GPIO pin
  * @param[in] tPort The GPIO port
@@ -271,6 +322,106 @@ void GPIO_vSetPinValue(t_GPIO_Ports tPort, t_GPIO_Pins tPin, t_GPIO_Value tValue
  * @see t_GPIO_Ports t_GPIO_Pins t_GPIO_Value
  */
 t_GPIO_Value GPIO_tGetPinValue(t_GPIO_Ports tPort, t_GPIO_Pins tPin);
+
+/**
+ * @brief This function is used to initialize the cortex event for a GPIO pin
+ * @details This function is used to initialize the cortex event for a GPIO pin
+ * @param[in] tPort The GPIO port
+ * @param[in] tPin The GPIO pin
+ * @see t_GPIO_Ports t_GPIO_Pins
+ */
+void GPIO_AFIO_vInitCortexEvent(t_GPIO_Ports tPort, t_GPIO_Pins tPin);
+
+/**
+ * @brief This function is used to configure the EXTI line for a GPIO pin
+ * @details This function is used to configure the EXTI line for a GPIO pin
+ * @param[in] tPort The GPIO port
+ * @param[in] tPin The GPIO pin
+ * @see t_GPIO_Ports t_GPIO_Pins
+ */
+void GPIO_AFIO_vConfigEXTILine(t_GPIO_Ports tPort, t_GPIO_Pins tPin);
+
+/**
+ * @brief This function is used to remap the SPI1 pins
+ * @details This function is used to remap the SPI1 pins.\n
+ * This bit controls the mapping of SPI1 NSS, SCK, MISO, MOSI alternate functions on the GPIO ports.\n
+ * Remaping options:
+ * - FALSE: No remap (NSS/PA4, SCK/PA5, MISO/PA6, MOSI/PA7)
+ * - TRUE: Remap (NSS/PA15, SCK/PB3, MISO/PB4, MOSI/PB5)
+ *
+ * @param[in] bRemap TRUE to remap, FALSE to not remap
+ */
+void GPIO_AFIO_vRemapSPI1(t_bool bRemap);
+
+/**
+ * @brief This function is used to remap the I2C1 pins
+ * @details This function is used to remap the I2C1 pins.
+ * This bit controls the mapping of I2C1 SCL and SDA alternate functions on the GPIO ports.\n
+ * Remaping options:
+ * - FALSE: No remap (SCL/PB6, SDA/PB7)
+ * - TRUE: Remap (SCL/PB8, SDA/PB9)
+ * @param[in] bRemap TRUE to remap, FALSE to not remap
+ */
+void GPIO_AFIO_vRemapI2C1(t_bool bRemap);
+
+/**
+ * @brief This function is used to remap the timer1 pins
+ * @details This function is used to remap the timer1 pins.
+ * This bit controls the mapping of TIM1 channels 1 to 4, 1N to 3N, external trigger (ETR) and Break input (BKIN) alternate functions on the GPIO ports.\n
+ * Remaping options:
+ * - FALSE: No remap (ETR/PA12, CH1/PA8, CH2/PA9, CH3/PA10, CH4/PA11, CH1N/PB13, CH2N/PB14, CH3N/PB15, BKIN/PB12)
+ * - TRUE: Partial remap (ETR/PA12, CH1/PA8, CH2/PA9, CH3/PA10, CH4/PA11, CH1N/PA7, CH2N/PB0, CH3N/PB1, BKIN/PA6)
+ * @param[in] bRemap TRUE to remap, FALSE to not remap
+ */
+void GPIO_AFIO_vRemapTimer1(t_bool bRemap);
+
+/**
+ * @brief This function is used to remap the timer2 pins
+ * @details This function is used to remap the timer2 pins.
+ * @param[in] tTimer2Remap The timer2 remap option
+ * @see t_AFIO_Timer2_Remap
+ */
+void GPIO_AFIO_vRemapTimer2(t_AFIO_Timer2_Remap tTimer2Remap);
+
+/**
+ * @brief This function is used to remap the timer3 pins
+ * @details This function is used to remap the timer3 pins.\n
+ * This bit controls the mapping of TIM3 channels 1 to 4 alternate functions on the GPIO ports.\n
+ * Remaping options:
+ * - FALSE: No remap (CH1/PA6, CH2/PA7, CH3/PB0, CH4/PB1)
+ * - TRUE: Partial remap (CH1/PB4, CH2/PB5, CH3/PB0, CH4/PB1)
+ * @param[in] bRemap TRUE to remap, FALSE to not remap
+ */
+void GPIO_AFIO_vRemapTimer3(t_bool bRemap);
+
+/**
+ * @brief This function is used to remap the CAN pins
+ * @details This function is used to remap the CAN pins.\n
+ * This bit controls the mapping of CAN RX and TX alternate functions on the GPIO ports.\n
+ * Remaping options:
+ * - FALSE: No remap (RX/PA11, TX/PA12)
+ * - TRUE: Remap (RX/PB8, TX/PB9)
+ * @param[in] bRemap TRUE to remap, FALSE to not remap
+ */
+void GPIO_AFIO_vRemapCan(t_bool bRemap);
+
+/**
+ * @brief This function is used to remap the PortD0 and PortD1 pins
+ * @details This function is used to remap the PortD0 and PortD1 pins to OSC_IN and OSC_OUT.\n
+ * Remaping options:
+ * - FALSE: No remap
+ * - TRUE: Remap (OSC_IN/PD0, OSC_OUT/PD1)
+ * @param[in] bRemap TRUE to remap, FALSE to not remap
+ */
+void GPIO_AFIO_vRemapPD01(t_bool bRemap);
+
+/**
+ * @brief This function is used to remap the Serial wire JTAG pins
+ * @details This function is used to remap the Serial wire JTAG pins.\n
+ * @param[in] tSWJRemap The SWJ remap option
+ * @see t_AFIO_SWJ_Remap
+ */
+void GPIO_AFIO_vRemapSWJ(t_AFIO_SWJ_Remap tSWJRemap);
 
 /** @} */
 /** @} */
